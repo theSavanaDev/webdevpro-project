@@ -36,7 +36,6 @@ const Plans: CollectionConfig = {
 					name: "price",
 					label: "Price",
 					type: "number",
-					required: true,
 					admin: {
 						width: "50%",
 					},
@@ -77,6 +76,102 @@ const Plans: CollectionConfig = {
 					name: "description",
 					label: "Description",
 					type: "text",
+				},
+			],
+		},
+
+		{
+			name: "cta",
+			label: "Call to Action",
+			type: "group",
+			fields: [
+				{
+					name: "showCTA",
+					label: "Add Call to Action",
+					type: "checkbox",
+					defaultValue: false,
+				},
+				{
+					name: "groupCTA",
+					label: false,
+					type: "group",
+					admin: {
+						condition: (_, siblingData) => siblingData?.showCTA,
+						hideGutter: true,
+					},
+					fields: [
+						{
+							type: "row",
+							fields: [
+								{
+									name: "urlCTA",
+									label: "URL",
+									type: "text",
+									admin: {
+										width: "50%",
+									},
+								},
+								{
+									name: "labelCTA",
+									label: "Label",
+									type: "text",
+									admin: {
+										width: "50%",
+									},
+								},
+							],
+						},
+						{
+							type: "row",
+							fields: [
+								{
+									name: "targetCTA",
+									label: "Target",
+									type: "select",
+									options: [
+										{
+											label: "_blank",
+											value: "_blank",
+										},
+										{
+											label: "_self",
+											value: "_self",
+										},
+										{
+											label: "_parent",
+											value: "_parent",
+										},
+										{
+											label: "_top",
+											value: "_top",
+										},
+									],
+									admin: {
+										width: "50%",
+									},
+								},
+								{
+									name: "variantCTA",
+									label: "Variant",
+									type: "select",
+									defaultValue: "default",
+									options: [
+										{
+											label: "Default",
+											value: "default",
+										},
+										{
+											label: "Outline",
+											value: "outline",
+										},
+									],
+									admin: {
+										width: "50%",
+									},
+								},
+							],
+						},
+					],
 				},
 			],
 		},

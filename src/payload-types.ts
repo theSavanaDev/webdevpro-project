@@ -11,6 +11,7 @@ export interface Config {
     users: UserAuthOperations;
   };
   collections: {
+    pages: Page;
     plans: Plan;
     categories: Category;
     faqs: Faq;
@@ -52,12 +53,21 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "plans".
  */
 export interface Plan {
   id: string;
   title: string;
-  price: number;
+  price?: number | null;
   featured?: boolean | null;
   perks: {
     description?: string | null;
@@ -69,6 +79,15 @@ export interface Plan {
         id?: string | null;
       }[]
     | null;
+  cta?: {
+    showCTA?: boolean | null;
+    groupCTA?: {
+      urlCTA?: string | null;
+      labelCTA?: string | null;
+      targetCTA?: ('_blank' | '_self' | '_parent' | '_top') | null;
+      variantCTA?: ('default' | 'outline') | null;
+    };
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -348,6 +367,10 @@ export interface FormSubmission {
 export interface PayloadLockedDocument {
   id: string;
   document?:
+    | ({
+        relationTo: 'pages';
+        value: string | Page;
+      } | null)
     | ({
         relationTo: 'plans';
         value: string | Plan;
