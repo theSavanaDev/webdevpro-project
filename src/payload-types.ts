@@ -11,6 +11,7 @@ export interface Config {
     users: UserAuthOperations;
   };
   collections: {
+    categories: Category;
     media: Media;
     users: User;
     forms: Form;
@@ -45,6 +46,16 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: string;
+  title: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -290,6 +301,10 @@ export interface FormSubmission {
 export interface PayloadLockedDocument {
   id: string;
   document?:
+    | ({
+        relationTo: 'categories';
+        value: string | Category;
+      } | null)
     | ({
         relationTo: 'media';
         value: string | Media;
