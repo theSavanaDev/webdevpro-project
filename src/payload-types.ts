@@ -12,6 +12,8 @@ export interface Config {
   };
   collections: {
     pages: Page;
+    posts: Post;
+    products: Product;
     plans: Plan;
     categories: Category;
     faqs: Faq;
@@ -62,6 +64,36 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: string;
+  title: string;
+  price: number;
+  description: string;
+  slug: string;
+  featured?: boolean | null;
+  perks: {
+    description?: string | null;
+    id?: string | null;
+  }[];
+  plan?: (string | Plan)[] | null;
+  categories: (string | Category)[];
+  images: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "plans".
  */
 export interface Plan {
@@ -80,12 +112,12 @@ export interface Plan {
       }[]
     | null;
   cta?: {
-    showCTA?: boolean | null;
+    addCTA?: boolean | null;
     groupCTA?: {
-      urlCTA?: string | null;
-      labelCTA?: string | null;
-      targetCTA?: ('_blank' | '_self' | '_parent' | '_top') | null;
-      variantCTA?: ('default' | 'outline') | null;
+      url?: string | null;
+      label?: string | null;
+      target?: ('_blank' | '_self' | '_parent' | '_top') | null;
+      variant?: ('default' | 'outline') | null;
     };
   };
   updatedAt: string;
@@ -98,28 +130,6 @@ export interface Plan {
 export interface Category {
   id: string;
   title: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "faqs".
- */
-export interface Faq {
-  id: string;
-  question: string;
-  answer: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "logos".
- */
-export interface Logo {
-  id: string;
-  company: string;
-  logoImage: string | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -158,6 +168,28 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqs".
+ */
+export interface Faq {
+  id: string;
+  question: string;
+  answer: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "logos".
+ */
+export interface Logo {
+  id: string;
+  company: string;
+  logoImage: string | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -370,6 +402,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: string | Page;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: string | Post;
+      } | null)
+    | ({
+        relationTo: 'products';
+        value: string | Product;
       } | null)
     | ({
         relationTo: 'plans';

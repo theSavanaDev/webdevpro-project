@@ -25,9 +25,12 @@ import Logos from "@/payload/collections/logos/schema";
 import Media from "@/payload/collections/media/schema";
 import Pages from "@/payload/collections/pages/schema";
 import Plans from "@/payload/collections/plans/schema";
+import Posts from "@/payload/collections/posts/schema";
+import Products from "@/payload/collections/products/schema";
 import Users from "@/payload/collections/users/schema";
 
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
+import { Page, Post } from "@/payload-types";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -44,7 +47,7 @@ const publicURL =
 		: process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
 // const generateTitle: GenerateTitle<Page | Post> = ({ doc }) => {
-// 	return doc?.title ? `${doc.title} | Payload Starter` : "Payload Starter";
+// 	return doc?.title ? `${doc.title} | WebDevPro` : "WebDevPro";
 // };
 
 // const generateURL: GenerateURL<Page | Post> = ({ doc }) => {
@@ -80,7 +83,7 @@ export default buildConfig({
 		},
 		user: Users.slug,
 	},
-	collections: [Pages, Plans, Categories, Faqs, Logos, Media, Users],
+	collections: [Pages, Posts, Products, Plans, Categories, Faqs, Logos, Media, Users],
 	db: mongooseAdapter({ url: databaseURI }),
 	editor: lexicalEditor({
 		features: () => {

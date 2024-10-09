@@ -86,7 +86,7 @@ const Plans: CollectionConfig = {
 			type: "group",
 			fields: [
 				{
-					name: "showCTA",
+					name: "addCTA",
 					label: "Add Call to Action",
 					type: "checkbox",
 					defaultValue: false,
@@ -96,7 +96,7 @@ const Plans: CollectionConfig = {
 					label: false,
 					type: "group",
 					admin: {
-						condition: (_, siblingData) => siblingData?.showCTA,
+						condition: (_, siblingData) => siblingData?.addCTA,
 						hideGutter: true,
 					},
 					fields: [
@@ -104,7 +104,7 @@ const Plans: CollectionConfig = {
 							type: "row",
 							fields: [
 								{
-									name: "urlCTA",
+									name: "url",
 									label: "URL",
 									type: "text",
 									admin: {
@@ -112,7 +112,7 @@ const Plans: CollectionConfig = {
 									},
 								},
 								{
-									name: "labelCTA",
+									name: "label",
 									label: "Label",
 									type: "text",
 									admin: {
@@ -125,7 +125,7 @@ const Plans: CollectionConfig = {
 							type: "row",
 							fields: [
 								{
-									name: "targetCTA",
+									name: "target",
 									label: "Target",
 									type: "select",
 									options: [
@@ -151,7 +151,7 @@ const Plans: CollectionConfig = {
 									},
 								},
 								{
-									name: "variantCTA",
+									name: "variant",
 									label: "Variant",
 									type: "select",
 									defaultValue: "default",
