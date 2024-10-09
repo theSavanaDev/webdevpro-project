@@ -13,6 +13,7 @@ export interface Config {
   collections: {
     categories: Category;
     faqs: Faq;
+    logos: Logo;
     media: Media;
     users: User;
     forms: Form;
@@ -66,6 +67,17 @@ export interface Faq {
   id: string;
   question: string;
   answer: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "logos".
+ */
+export interface Logo {
+  id: string;
+  company: string;
+  logoImage: string | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -320,6 +332,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'faqs';
         value: string | Faq;
+      } | null)
+    | ({
+        relationTo: 'logos';
+        value: string | Logo;
       } | null)
     | ({
         relationTo: 'media';

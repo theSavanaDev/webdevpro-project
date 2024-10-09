@@ -21,6 +21,7 @@ import { fileURLToPath } from "url";
 
 import Categories from "@/payload/collections/categories/schema";
 import Faqs from "@/payload/collections/faqs/schema";
+import Logos from "@/payload/collections/logos/schema";
 import Media from "@/payload/collections/media/schema";
 import Users from "@/payload/collections/users/schema";
 
@@ -77,7 +78,7 @@ export default buildConfig({
 		},
 		user: Users.slug,
 	},
-	collections: [Categories, Faqs, Media, Users],
+	collections: [Categories, Faqs, Logos, Media, Users],
 	db: mongooseAdapter({ url: databaseURI }),
 	editor: lexicalEditor({
 		features: () => {
