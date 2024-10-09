@@ -1,8 +1,8 @@
-# The [XXXXX] Project
+# The WebDevPro Project
 
-Welcome to the repository for The [XXXXX] project. This repository houses the codebase for
-the dynamic and interactive website, showcasing our commitment to excellence in web
-development.
+This repository contains an example that showcases how powerful Payload CMS is, and how it
+can be used to create simple, yet powerful editor experiences where you can build very
+functional websites and landing pages.
 
 ## Table of Contents
 
@@ -15,15 +15,24 @@ development.
 
 ## Introduction
 
-Superior Software Solutions is dedicated to transforming digital experiences. This website
-serves as a testament to our skills and commitment to delivering top-notch web solutions.
+I wanted to have the basis of creating various types of websites, like:
+
+- A personal or enterprise-grade website, blog, or portfolio.
+- A content publishing platform with a fully featured publication workflow.
+- A lead generation website with premium content gated behind authentication.
+
+I have taken a big time bet on Payload CMS on top of Next.js to be my content publishing
+and application platform of choice.
 
 ## Features
 
-- **Dynamic Content:** Engage visitors with dynamic and personalized content.
-- **Interactive UI/UX:** Provide an immersive user experience with smooth navigation.
-- **Portfolio Showcase:** Highlight our successful projects and case studies.
-- **Contact Form:** Enable clients to reach out easily for inquiries and collaborations.
+- Authentication
+- Access Control
+- Layout Builder
+- Draft Preview
+- Live Preview
+- SEO
+- Website
 
 ## Tech Stack
 
@@ -45,4 +54,4 @@ We will eventually welcome contributions.
 
 This project is licensed under the MIT License.
 
-Thank you for being a part of The [XXXXX] website project... 🚀✨
+Thank you for being a part of The WebDevPro project... 🚀✨

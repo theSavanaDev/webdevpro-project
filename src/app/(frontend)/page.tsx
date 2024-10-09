@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import LayoutContainer from "@/components/layout-container";
+import Container from "@/components/container";
 
 const HomePage = () => {
 	return (
-		<LayoutContainer>
+		<Container>
 			<article>
 				<section className="pb-36 pt-36">
 					<h1 className="text-4xl font-bold tracking-wide text-sky-800">
@@ -23,7 +23,7 @@ const HomePage = () => {
 					</Button>
 				</section>
 			</article>
-		</LayoutContainer>
+		</Container>
 	);
 };
 
