@@ -21,6 +21,7 @@
 		"paths": {
 			"@/*": ["./src/*"],
 			"@/components/*": ["./src/components/*"],
+			"@/frontend/*": ["./src/app/(frontend)/*"],
 			"@/lib/*": ["./src/lib/*"],
 			"@/payload/*": ["./src/payload/*"],
 			"@payload-config": ["./src/payload.config.ts"]
