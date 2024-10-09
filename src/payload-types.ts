@@ -18,6 +18,7 @@ export interface Config {
     categories: Category;
     faqs: Faq;
     logos: Logo;
+    testimonials: Testimonial;
     media: Media;
     users: User;
     forms: Form;
@@ -189,6 +190,22 @@ export interface Logo {
   id: string;
   company: string;
   logoImage: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: string;
+  content: string;
+  customer?: {
+    firstName?: string | null;
+    lastName?: string | null;
+    job?: string | null;
+    image?: (string | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -427,6 +444,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'logos';
         value: string | Logo;
+      } | null)
+    | ({
+        relationTo: 'testimonials';
+        value: string | Testimonial;
       } | null)
     | ({
         relationTo: 'media';

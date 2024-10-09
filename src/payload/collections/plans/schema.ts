@@ -79,7 +79,6 @@ const Plans: CollectionConfig = {
 				},
 			],
 		},
-
 		{
 			name: "cta",
 			label: "Call to Action",

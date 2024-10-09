@@ -1,4 +1,5 @@
 import {
+	FixedToolbarFeature,
 	HTMLConverterFeature,
 	InlineToolbarFeature,
 	lexicalEditor,
@@ -36,7 +37,12 @@ const Media: CollectionConfig = {
 			type: "richText",
 			editor: lexicalEditor({
 				features: ({ rootFeatures }) => {
-					return [...rootFeatures, HTMLConverterFeature({}), InlineToolbarFeature()];
+					return [
+						...rootFeatures,
+						FixedToolbarFeature(),
+						HTMLConverterFeature({}),
+						InlineToolbarFeature(),
+					];
 				},
 			}),
 		},

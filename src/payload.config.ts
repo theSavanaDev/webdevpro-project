@@ -27,6 +27,7 @@ import Pages from "@/payload/collections/pages/schema";
 import Plans from "@/payload/collections/plans/schema";
 import Posts from "@/payload/collections/posts/schema";
 import Products from "@/payload/collections/products/schema";
+import Testimonials from "@/payload/collections/testimonials/schema";
 import Users from "@/payload/collections/users/schema";
 
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
@@ -83,7 +84,18 @@ export default buildConfig({
 		},
 		user: Users.slug,
 	},
-	collections: [Pages, Posts, Products, Plans, Categories, Faqs, Logos, Media, Users],
+	collections: [
+		Pages,
+		Posts,
+		Products,
+		Plans,
+		Categories,
+		Faqs,
+		Logos,
+		Testimonials,
+		Media,
+		Users,
+	],
 	db: mongooseAdapter({ url: databaseURI }),
 	editor: lexicalEditor({
 		features: () => {
@@ -91,7 +103,7 @@ export default buildConfig({
 				BoldFeature(),
 				ItalicFeature(),
 				LinkFeature({
-					enabledCollections: [],
+					enabledCollections: ["pages", "posts"],
 					fields: ({ defaultFields }) => {
 						const defaultFieldsWithoutUrl = defaultFields.filter((field) => {
 							if ("name" in field && field.name === "url") return false;
@@ -111,7 +123,6 @@ export default buildConfig({
 						];
 					},
 				}),
-				FixedToolbarFeature(),
 				HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
 				OrderedListFeature(),
 				UnderlineFeature(),
