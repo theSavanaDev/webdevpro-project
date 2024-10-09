@@ -1,149 +1,55 @@
-import deepMerge from "@/lib/deepMerge";
+import { formatSlugField } from "@/payload/fields/slug/hooks/formatSlug";
 
-import type { Field } from "payload";
+import type { CheckboxField, TextField } from "payload";
 
-export type LinkAppearances = "default" | "outline";
-
-export const appearanceOptions: Record<
-	LinkAppearances,
-	{ label: string; value: string }
-> = {
-	default: {
-		label: "Default",
-		value: "default",
-	},
-	outline: {
-		label: "Outline",
-		value: "outline",
-	},
+type Overrides = {
+	slugOverrides?: Partial<TextField>;
+	checkboxOverrides?: Partial<CheckboxField>;
 };
 
-type LinkType = (options?: {
-	appearances?: LinkAppearances[] | false;
-	disableLabel?: boolean;
-	overrides?: Record<string, unknown>;
-}) => Field;
+type Slug = (fieldToUse?: string, overrides?: Overrides) => [TextField, CheckboxField];
 
-export const link: LinkType = ({
-	appearances,
-	disableLabel = false,
-	overrides = {},
-} = {}) => {
-	const linkResult: Field = {
-		name: "link",
-		type: "group",
+export const slugField: Slug = (fieldToUse = "title", overrides = {}) => {
+	const { slugOverrides, checkboxOverrides } = overrides;
+
+	const checkBoxField: CheckboxField = {
+		name: "slugLock",
+		type: "checkbox",
+		defaultValue: true,
 		admin: {
-			hideGutter: true,
+			hidden: true,
+			position: "sidebar",
 		},
-		fields: [
-			{
-				type: "row",
-				fields: [
-					{
-						name: "type",
-						type: "radio",
-						admin: {
-							layout: "horizontal",
-							width: "50%",
-						},
-						defaultValue: "reference",
-						options: [
-							{
-								label: "Internal link",
-								value: "reference",
-							},
-							{
-								label: "Custom URL",
-								value: "custom",
-							},
-						],
-					},
-					{
-						name: "newTab",
-						label: "Open in new tab",
-						type: "checkbox",
-						admin: {
-							style: {
-								alignSelf: "flex-end",
-							},
-							width: "50%",
-						},
-					},
-				],
-			},
-		],
+		...checkboxOverrides,
 	};
 
-	const linkTypes: Field[] = [
-		{
-			name: "reference",
-			label: "Document to link to",
-			type: "relationship",
-			relationTo: ["pages"],
-			required: true,
-			maxDepth: 1,
-			admin: {
-				condition: (_, siblingData) => siblingData?.type === "reference",
-			},
+	// Expect ts error here because of typescript mismatching Partial<TextField> with TextField
+	// @ts-expect-error
+	const slugField: TextField = {
+		name: "slug",
+		type: "text",
+		index: true,
+		label: "Slug",
+		required: true,
+		...(slugOverrides || {}),
+		hooks: {
+			// Kept this in for hook or API based updates
+			beforeValidate: [formatSlugField(fieldToUse)],
 		},
-		{
-			name: "url",
-			label: "Custom URL",
-			type: "text",
-			required: true,
-			admin: {
-				condition: (_, siblingData) => siblingData?.type === "custom",
-			},
-		},
-	];
-
-	if (!disableLabel) {
-		linkTypes.map((linkType) => ({
-			...linkType,
-			admin: {
-				...linkType.admin,
-				width: "50%",
-			},
-		}));
-
-		linkResult.fields.push({
-			type: "row",
-			fields: [
-				...linkTypes,
-				{
-					name: "label",
-					label: "Label",
-					type: "text",
-					required: true,
-					admin: {
-						width: "50%",
+		admin: {
+			position: "sidebar",
+			...(slugOverrides?.admin || {}),
+			components: {
+				Field: {
+					path: "@/payload/fields/slug/component#SlugComponent",
+					clientProps: {
+						fieldToUse,
+						checkboxFieldPath: checkBoxField.name,
 					},
 				},
-			],
-		});
-	} else {
-		linkResult.fields = [...linkResult.fields, ...linkTypes];
-	}
-
-	if (appearances !== false) {
-		let appearanceOptionsToUse = [appearanceOptions.default, appearanceOptions.outline];
-
-		if (appearances) {
-			appearanceOptionsToUse = appearances.map(
-				(appearance) => appearanceOptions[appearance],
-			);
-		}
-
-		linkResult.fields.push({
-			name: "appearance",
-			type: "select",
-			defaultValue: "default",
-			options: appearanceOptionsToUse,
-			admin: {
-				description: "Choose how the link should be rendered.",
 			},
-		});
-	}
+		},
+	};
 
-	return deepMerge(linkResult, overrides);
+	return [slugField, checkBoxField];
 };

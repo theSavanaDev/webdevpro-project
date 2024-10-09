@@ -1,3 +1,5 @@
+import { slugField } from "@/payload/fields/slug";
+
 import { anyone } from "@/payload/access/anyone";
 import { authenticated } from "@/payload/access/authenticated";
 
@@ -57,15 +59,7 @@ const Products: CollectionConfig = {
 				},
 			],
 		},
-		{
-			name: "slug",
-			label: "Slug",
-			type: "text",
-			required: true,
-			admin: {
-				position: "sidebar",
-			},
-		},
+		...slugField(),
 		{
 			name: "featured",
 			label: "Featured Product?",
@@ -108,7 +102,6 @@ const Products: CollectionConfig = {
 					type: "relationship",
 					relationTo: "categories",
 					hasMany: true,
-					required: true,
 					admin: {
 						width: "50%",
 					},

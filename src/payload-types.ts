@@ -81,13 +81,14 @@ export interface Product {
   price: number;
   description: string;
   slug: string;
+  slugLock?: boolean | null;
   featured?: boolean | null;
   perks: {
     description?: string | null;
     id?: string | null;
   }[];
   plan?: (string | Plan)[] | null;
-  categories: (string | Category)[];
+  categories?: (string | Category)[] | null;
   images: string | Media;
   updatedAt: string;
   createdAt: string;
