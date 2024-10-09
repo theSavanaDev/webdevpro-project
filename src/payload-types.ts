@@ -12,6 +12,7 @@ export interface Config {
   };
   collections: {
     categories: Category;
+    faqs: Faq;
     media: Media;
     users: User;
     forms: Form;
@@ -54,6 +55,17 @@ export interface UserAuthOperations {
 export interface Category {
   id: string;
   title: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqs".
+ */
+export interface Faq {
+  id: string;
+  question: string;
+  answer: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -304,6 +316,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'categories';
         value: string | Category;
+      } | null)
+    | ({
+        relationTo: 'faqs';
+        value: string | Faq;
       } | null)
     | ({
         relationTo: 'media';
