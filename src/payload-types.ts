@@ -11,6 +11,7 @@ export interface Config {
     users: UserAuthOperations;
   };
   collections: {
+    plans: Plan;
     categories: Category;
     faqs: Faq;
     logos: Logo;
@@ -48,6 +49,28 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "plans".
+ */
+export interface Plan {
+  id: string;
+  title: string;
+  price: number;
+  featured?: boolean | null;
+  perks: {
+    description?: string | null;
+    id?: string | null;
+  }[];
+  additionalPerks?:
+    | {
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -325,6 +348,10 @@ export interface FormSubmission {
 export interface PayloadLockedDocument {
   id: string;
   document?:
+    | ({
+        relationTo: 'plans';
+        value: string | Plan;
+      } | null)
     | ({
         relationTo: 'categories';
         value: string | Category;

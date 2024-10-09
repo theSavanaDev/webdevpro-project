@@ -23,6 +23,7 @@ import Categories from "@/payload/collections/categories/schema";
 import Faqs from "@/payload/collections/faqs/schema";
 import Logos from "@/payload/collections/logos/schema";
 import Media from "@/payload/collections/media/schema";
+import Plans from "@/payload/collections/plans/schema";
 import Users from "@/payload/collections/users/schema";
 
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
@@ -78,7 +79,7 @@ export default buildConfig({
 		},
 		user: Users.slug,
 	},
-	collections: [Categories, Faqs, Logos, Media, Users],
+	collections: [Plans, Categories, Faqs, Logos, Media, Users],
 	db: mongooseAdapter({ url: databaseURI }),
 	editor: lexicalEditor({
 		features: () => {

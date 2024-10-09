@@ -1,5 +1,5 @@
-import { anyone } from "@/payload-access/anyone";
-import { authenticated } from "@/payload-access/authenticated";
+import { anyone } from "@/payload/access/anyone";
+import { authenticated } from "@/payload/access/authenticated";
 
 import type { CollectionConfig } from "payload";
 
