@@ -47,13 +47,13 @@ const publicURL =
 		? process.env.NEXT_PUBLIC_SERVER_URL_DEV!
 		: process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
-// const generateTitle: GenerateTitle<Page | Post> = ({ doc }) => {
-// 	return doc?.title ? `${doc.title} | WebDevPro` : "WebDevPro";
-// };
+const generateTitle: GenerateTitle<Page | Post> = ({ doc }) => {
+	return doc?.title ? `${doc.title} | WebDevPro` : "WebDevPro";
+};
 
-// const generateURL: GenerateURL<Page | Post> = ({ doc }) => {
-// 	return doc?.slug ? `${publicURL}/${doc.slug}` : publicURL;
-// };
+const generateURL: GenerateURL<Page | Post> = ({ doc }) => {
+	return doc?.slug ? `${publicURL}/${doc.slug}` : publicURL;
+};
 
 export default buildConfig({
 	admin: {
@@ -164,7 +164,8 @@ export default buildConfig({
 			},
 		}),
 		seoPlugin({
-			/* generateTitle, generateURL */
+			generateTitle,
+			generateURL,
 		}),
 		uploadthingStorage({
 			collections: {
