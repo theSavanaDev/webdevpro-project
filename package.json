@@ -1,7 +1,7 @@
 {
-	"name": "payload-starter-template",
+	"name": "webdevpro-project",
 	"version": "0.1.2",
-	"description": "A blank template to get started with Payload 3.0",
+	"description": "Sample website for learning Payload CMS version 3.0",
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
@@ -29,7 +29,7 @@
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
 		"cross-env": "^7.0.3",
-		"framer-motion": "^11.11.7",
+		"framer-motion": "^11.11.8",
 		"graphql": "^16.9.0",
 		"jsonwebtoken": "^9.0.2",
 		"lucide-react": "^0.441.0",
@@ -41,7 +41,7 @@
 		"react-hook-form": "^7.53.0",
 		"resend": "^3.5.0",
 		"sharp": "0.32.6",
-		"tailwind-merge": "^2.5.3",
+		"tailwind-merge": "^2.5.4",
 		"tailwindcss-animate": "^1.0.7"
 	},
 	"devDependencies": {
