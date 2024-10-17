@@ -14,11 +14,7 @@ export const linkGroup: LinkGroupType = ({ appearances, overrides = {} } = {}) =
 	const generatedLinkGroup: Field = {
 		name: "links",
 		type: "array",
-		fields: [
-			link({
-				appearances,
-			}),
-		],
+		fields: [link({ appearances })],
 	};
 
 	return deepMerge(generatedLinkGroup, overrides);
