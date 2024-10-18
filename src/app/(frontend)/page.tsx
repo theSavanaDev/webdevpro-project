@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import Container from "@/components/container";
+import { Container } from "@/components/container";
 
 const HomePage = () => {
 	return (

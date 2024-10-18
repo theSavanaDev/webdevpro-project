@@ -30,7 +30,9 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
+  globals: {
+    header: Header;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -551,6 +553,30 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: string;
+  logo: string | Media;
+  name: string;
+  nav: {
+    link: {
+      type?: ('reference' | 'custom') | null;
+      newTab?: boolean | null;
+      reference?: {
+        relationTo: 'pages';
+        value: string | Page;
+      } | null;
+      url?: string | null;
+      label: string;
+    };
+    id?: string | null;
+  }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -30,6 +30,8 @@ import Products from "@/payload/collections/products/schema";
 import Testimonials from "@/payload/collections/testimonials/schema";
 import Users from "@/payload/collections/users/schema";
 
+import Header from "@/payload/blocks/globals/header/schema";
+
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
 import { Page, Post } from "@/payload-types";
 
@@ -135,7 +137,7 @@ export default buildConfig({
 		defaultFromName: "MTA @ S3",
 		apiKey: resendAPIKey,
 	}),
-	globals: [],
+	globals: [Header],
 	plugins: [
 		formBuilderPlugin({
 			fields: {

@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { mergeOpenGraph } from "@/lib/merge-open-graph";
 import { cn } from "@/lib/utils";
 
+import { HeaderBlock } from "@/payload/blocks/globals/header/component";
+
 import type { Metadata } from "next";
 
 import "@/frontend/global.css";
@@ -28,13 +30,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			>
 				<ThemeProvider
 					attribute="class"
-					defaultTheme="light"
+					defaultTheme="dark"
 					enableSystem
 					disableTransitionOnChange
 				>
 					<LivePreviewListener />
 
-					<header className="text-center">Header Goes Here</header>
+					<header>
+						<HeaderBlock />
+					</header>
 
 					<main>{children}</main>
 
