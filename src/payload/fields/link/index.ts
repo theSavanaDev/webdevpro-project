@@ -4,10 +4,7 @@ import type { Field } from "payload";
 
 export type LinkAppearances = "default" | "outline";
 
-export const appearanceOptions: Record<
-	LinkAppearances,
-	{ label: string; value: string }
-> = {
+export const appearanceOptions: Record<LinkAppearances, { label: string; value: string }> = {
 	default: {
 		label: "Default",
 		value: "default",
@@ -18,17 +15,9 @@ export const appearanceOptions: Record<
 	},
 };
 
-type LinkType = (options?: {
-	appearances?: LinkAppearances[] | false;
-	disableLabel?: boolean;
-	overrides?: Record<string, unknown>;
-}) => Field;
+type LinkType = (options?: { appearances?: LinkAppearances[] | false; disableLabel?: boolean; overrides?: Record<string, unknown> }) => Field;
 
-export const link: LinkType = ({
-	appearances,
-	disableLabel = false,
-	overrides = {},
-} = {}) => {
+export const link: LinkType = ({ appearances, disableLabel = false, overrides = {} } = {}) => {
 	const linkResult: Field = {
 		name: "link",
 		type: "group",
@@ -42,10 +31,6 @@ export const link: LinkType = ({
 					{
 						name: "type",
 						type: "radio",
-						admin: {
-							layout: "horizontal",
-							width: "50%",
-						},
 						defaultValue: "reference",
 						options: [
 							{
@@ -57,9 +42,14 @@ export const link: LinkType = ({
 								value: "custom",
 							},
 						],
+						admin: {
+							layout: "horizontal",
+							width: "50%",
+						},
 					},
 					{
 						name: "newTab",
+						label: "Open in new tab",
 						type: "checkbox",
 						admin: {
 							style: {
@@ -67,7 +57,6 @@ export const link: LinkType = ({
 							},
 							width: "50%",
 						},
-						label: "Open in new tab",
 					},
 				],
 			},
@@ -77,23 +66,23 @@ export const link: LinkType = ({
 	const linkTypes: Field[] = [
 		{
 			name: "reference",
+			label: "Document to link to",
 			type: "relationship",
+			relationTo: ["pages"],
+			required: true,
+			maxDepth: 1,
 			admin: {
 				condition: (_, siblingData) => siblingData?.type === "reference",
 			},
-			label: "Document to link to",
-			maxDepth: 1,
-			relationTo: ["pages"],
-			required: true,
 		},
 		{
 			name: "url",
+			label: "Custom URL",
 			type: "text",
+			required: true,
 			admin: {
 				condition: (_, siblingData) => siblingData?.type === "custom",
 			},
-			label: "Custom URL",
-			required: true,
 		},
 	];
 
@@ -112,12 +101,12 @@ export const link: LinkType = ({
 				...linkTypes,
 				{
 					name: "label",
+					label: "Label",
 					type: "text",
+					required: true,
 					admin: {
 						width: "50%",
 					},
-					label: "Label",
-					required: true,
 				},
 			],
 		});
@@ -129,19 +118,17 @@ export const link: LinkType = ({
 		let appearanceOptionsToUse = [appearanceOptions.default, appearanceOptions.outline];
 
 		if (appearances) {
-			appearanceOptionsToUse = appearances.map(
-				(appearance) => appearanceOptions[appearance],
-			);
+			appearanceOptionsToUse = appearances.map((appearance) => appearanceOptions[appearance]);
 		}
 
 		linkResult.fields.push({
 			name: "appearance",
 			type: "select",
+			defaultValue: "default",
+			options: appearanceOptionsToUse,
 			admin: {
 				description: "Choose how the link should be rendered.",
 			},
-			defaultValue: "default",
-			options: appearanceOptionsToUse,
 		});
 	}
 

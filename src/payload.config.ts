@@ -30,6 +30,7 @@ import Products from "@/payload/collections/products/schema";
 import Testimonials from "@/payload/collections/testimonials/schema";
 import Users from "@/payload/collections/users/schema";
 
+import Footer from "@/payload/blocks/globals/footer/schema";
 import Header from "@/payload/blocks/globals/header/schema";
 
 import { GenerateTitle, GenerateURL } from "@payloadcms/plugin-seo/types";
@@ -37,17 +38,11 @@ import { Page, Post } from "@/payload-types";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
-const databaseURI =
-	process.env.NODE_ENV === "development"
-		? process.env.DATABASE_URI_DEV!
-		: process.env.DATABASE_URI_PRD!;
+const databaseURI = process.env.NODE_ENV === "development" ? process.env.DATABASE_URI_DEV! : process.env.DATABASE_URI_PRD!;
 const payloadSecret = process.env.PAYLOAD_SECRET!;
 const resendAPIKey = process.env.RESEND_API_KEY!;
 const uploadthingSecret = process.env.UPLOADTHING_SECRET!;
-const publicURL =
-	process.env.NODE_ENV === "development"
-		? process.env.NEXT_PUBLIC_SERVER_URL_DEV!
-		: process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
+const publicURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
 const generateTitle: GenerateTitle<Page | Post> = ({ doc }) => {
 	return doc?.title ? `${doc.title} | WebDevPro` : "WebDevPro";
@@ -86,18 +81,7 @@ export default buildConfig({
 		},
 		user: Users.slug,
 	},
-	collections: [
-		Pages,
-		Posts,
-		Products,
-		Plans,
-		Categories,
-		Faqs,
-		Logos,
-		Testimonials,
-		Media,
-		Users,
-	],
+	collections: [Pages, Posts, Products, Plans, Categories, Faqs, Logos, Testimonials, Media, Users],
 	db: mongooseAdapter({ url: databaseURI }),
 	editor: lexicalEditor({
 		features: () => {
@@ -137,7 +121,7 @@ export default buildConfig({
 		defaultFromName: "MTA @ S3",
 		apiKey: resendAPIKey,
 	}),
-	globals: [Header],
+	globals: [Header, Footer],
 	plugins: [
 		formBuilderPlugin({
 			fields: {
@@ -151,11 +135,7 @@ export default buildConfig({
 								...field,
 								editor: lexicalEditor({
 									features: ({ rootFeatures }) => {
-										return [
-											...rootFeatures,
-											FixedToolbarFeature(),
-											HeadingFeature({ enabledHeadingSizes: ["h2", "h3", "h4"] }),
-										];
+										return [...rootFeatures, FixedToolbarFeature(), HeadingFeature({ enabledHeadingSizes: ["h2", "h3", "h4"] })];
 									},
 								}),
 							};

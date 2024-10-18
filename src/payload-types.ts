@@ -32,6 +32,7 @@ export interface Config {
   };
   globals: {
     header: Header;
+    footer: Footer;
   };
   locale: null;
   user: User & {
@@ -562,7 +563,7 @@ export interface Header {
   id: string;
   logo: string | Media;
   name: string;
-  nav: {
+  heading: {
     link: {
       type?: ('reference' | 'custom') | null;
       newTab?: boolean | null;
@@ -575,6 +576,64 @@ export interface Header {
     };
     id?: string | null;
   }[];
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: string;
+  logo: string | Media;
+  name: string;
+  description: string;
+  copyright: string;
+  discover?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  legal?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  miscellaneous?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+        };
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

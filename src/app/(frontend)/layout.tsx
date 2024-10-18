@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { mergeOpenGraph } from "@/lib/merge-open-graph";
 import { cn } from "@/lib/utils";
 
+import { FooterBlock } from "@/payload/blocks/globals/footer/component";
 import { HeaderBlock } from "@/payload/blocks/globals/header/component";
 
 import type { Metadata } from "next";
@@ -13,10 +14,7 @@ import "@/frontend/global.css";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
-const serverURL =
-	process.env.NODE_ENV === "development"
-		? process.env.NEXT_PUBLIC_SERVER_URL_DEV!
-		: process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
+const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -25,15 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<link href="/favicon.svg" rel="icon" type="image/svg+xml" />
 			</head>
 
-			<body
-				className={cn("flex h-screen flex-col font-sans antialiased", fontSans.variable)}
-			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="dark"
-					enableSystem
-					disableTransitionOnChange
-				>
+			<body className={cn("flex h-screen flex-col font-sans antialiased", fontSans.variable)}>
+				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
 					<LivePreviewListener />
 
 					<header>
@@ -42,7 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 					<main>{children}</main>
 
-					<footer className="mt-auto text-center">Footer Goes Here</footer>
+					<footer className="mt-auto text-center">
+						<FooterBlock />
+					</footer>
 				</ThemeProvider>
 			</body>
 		</html>

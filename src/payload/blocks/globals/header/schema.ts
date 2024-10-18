@@ -11,24 +11,35 @@ const Header: GlobalConfig = {
 	},
 	fields: [
 		{
-			name: "logo",
-			label: "Site Logo",
-			type: "upload",
-			relationTo: "media",
-			required: true,
+			type: "row",
+			fields: [
+				{
+					name: "logo",
+					label: "Site Logo",
+					type: "upload",
+					relationTo: "media",
+					required: true,
+					admin: {
+						width: "50%",
+					},
+				},
+				{
+					name: "name",
+					label: "Site Name",
+					type: "text",
+					required: true,
+					admin: {
+						width: "50%",
+					},
+				},
+			],
 		},
 		{
-			name: "name",
-			label: "Site Name",
-			type: "text",
-			required: true,
-		},
-		{
-			name: "nav",
-			label: "Navigation",
+			name: "heading",
+			label: "Header Links",
 			labels: {
-				singular: "Navigation Header",
-				plural: "Navigation Headers",
+				singular: "Header Link",
+				plural: "Header Links",
 			},
 			type: "array",
 			required: true,
