@@ -6,15 +6,15 @@ import {
 	PreviewField,
 } from "@payloadcms/plugin-seo/fields";
 
-import { generatePreviewPath } from "@/lib/generatePreviewPath";
+import { generatePreviewPath } from "@/lib/generate-preview-path";
 
 import { slugField } from "@/payload/fields/slug";
 
 import { authenticated } from "@/payload/access/authenticated";
-import { authenticatedOrPublished } from "@/payload/access/authenticatedOrPublished";
+import { authenticatedOrPublished } from "@/payload/access/authenticated-or-published";
 
-import { populatePublishedAt } from "@/payload/hooks/populatePublishedAt";
-import { revalidatePage } from "@/payload/collections/pages/hooks/revalidatePage";
+import { populatePublishedAt } from "@/payload/hooks/populate-published-at";
+import { revalidatePage } from "@/payload/collections/pages/hooks/revalidate-page";
 
 import type { CollectionConfig } from "payload";
 

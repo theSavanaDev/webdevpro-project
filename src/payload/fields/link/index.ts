@@ -1,4 +1,4 @@
-import deepMerge from "@/lib/deepMerge";
+import deepMerge from "@/lib/deep-merge";
 
 import type { Field } from "payload";
 

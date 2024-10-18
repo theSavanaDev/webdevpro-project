@@ -15,15 +15,15 @@ import {
 	PreviewField,
 } from "@payloadcms/plugin-seo/fields";
 
-import { generatePreviewPath } from "@/lib/generatePreviewPath";
+import { generatePreviewPath } from "@/lib/generate-preview-path";
 
 import { slugField } from "@/payload/fields/slug";
 
 import { authenticated } from "@/payload/access/authenticated";
-import { authenticatedOrPublished } from "@/payload/access/authenticatedOrPublished";
+import { authenticatedOrPublished } from "@/payload/access/authenticated-or-published";
 
-import { populateAuthors } from "@/payload/collections/posts/hooks/populateAuthors";
-import { revalidatePost } from "@/payload/collections/posts/hooks/revalidatePost";
+import { populateAuthors } from "@/payload/collections/posts/hooks/populate-authors";
+import { revalidatePost } from "@/payload/collections/posts/hooks/revalidate-post";
 
 import type { CollectionConfig } from "payload";
 

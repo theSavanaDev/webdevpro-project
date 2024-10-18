@@ -1,6 +1,6 @@
 import { authenticated } from "@/payload/access/authenticated";
 
-import populateFullName from "@/payload/collections/users/hooks/populateFullName";
+import populateFullName from "@/payload/collections/users/hooks/populate-full-name";
 
 import type { CollectionConfig } from "payload";
 

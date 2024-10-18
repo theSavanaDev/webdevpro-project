@@ -2,7 +2,7 @@ import { Inter as FontSans } from "next/font/google";
 
 import { LivePreviewListener } from "@/components/live-preview-listener";
 import { ThemeProvider } from "@/components/theme-provider";
-import { mergeOpenGraph } from "@/lib/mergeOpenGraph";
+import { mergeOpenGraph } from "@/lib/merge-open-graph";
 import { cn } from "@/lib/utils";
 
 import type { Metadata } from "next";

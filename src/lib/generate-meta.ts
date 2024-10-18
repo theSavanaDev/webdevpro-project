@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { Page, Post } from "@/payload-types";
 
-import { mergeOpenGraph } from "@/lib/mergeOpenGraph";
+import { mergeOpenGraph } from "@/lib/merge-open-graph";
 
 const serverURL =
 	process.env.NODE_ENV === "development"
