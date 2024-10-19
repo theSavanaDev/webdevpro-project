@@ -10,6 +10,8 @@ import { authenticatedOrPublished } from "@/payload/access/authenticated-or-publ
 import { populatePublishedAt } from "@/payload/hooks/populate-published-at";
 import { revalidatePage } from "@/payload/collections/pages/hooks/revalidate-page";
 
+import { HeroHomepage } from "@/payload/blocks/hero-homepage/schema";
+
 import type { CollectionConfig } from "payload";
 
 const publicURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
@@ -61,12 +63,12 @@ const Pages: CollectionConfig = {
 				{
 					label: "Content",
 					fields: [
-						// {
-						// 	name: "layout",
-						// 	type: "blocks",
-						// 	blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
-						// 	required: true,
-						// },
+						{
+							name: "layout",
+							type: "blocks",
+							blocks: [HeroHomepage],
+							required: true,
+						},
 					],
 				},
 				{

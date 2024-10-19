@@ -1,14 +1,18 @@
 // @ts-nocheck
 import { Fragment } from "react";
 
+import { HeroHomepageBlock } from "@/payload/blocks/hero-homepage/component";
+
 import type { Page } from "@/payload-types";
 
 type RenderBlocksProps = {
 	blocks: Page["layout"][0][];
 };
 
-// maping block slugs to their respective components
-const blockComponents = {};
+// mapping block slugs to their respective components
+const blockComponents = {
+	heroHomepage: HeroHomepageBlock,
+};
 
 export const RenderBlocks = (props: RenderBlocksProps) => {
 	const { blocks } = props;

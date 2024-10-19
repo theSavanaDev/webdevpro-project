@@ -64,6 +64,14 @@ export interface UserAuthOperations {
 export interface Page {
   id: string;
   title: string;
+  layout: {
+    heroTitle?: string | null;
+    heroMessage?: string | null;
+    heroImage: string | Media;
+    id?: string | null;
+    blockName?: string | null;
+    blockType: 'heroHomepage';
+  }[];
   meta?: {
     title?: string | null;
     image?: (string | null) | Media;

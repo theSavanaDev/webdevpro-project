@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getCachedGlobal } from "@/lib/get-global";
 
 import { Container } from "@/components/container";
+import { CMSLink } from "@/components/cms-link";
 import { RenderImage } from "@/components/render-image";
 
 import type { Header } from "@/payload-types";
@@ -26,15 +27,15 @@ export const HeaderBlock = async () => {
 				</Link>
 
 				<div>
-					{header.heading.map((headLinkItem) => (
-						<Link
-							key={headLinkItem.link.url}
-							href={headLinkItem.link.url !== null && headLinkItem.link.url !== undefined ? headLinkItem.link.url : "/"}
-							className="mx-1 transform border-b-2 border-transparent text-sm font-medium transition-colors duration-300 hover:border-blue-500 hover:text-gray-800 dark:hover:text-gray-200 sm:mx-5"
-						>
-							{headLinkItem.link.label}
-						</Link>
-					))}
+					{header.heading.map(({ link }, i) => {
+						return (
+							<CMSLink
+								className="mx-1 transform border-b-2 border-transparent text-sm font-medium transition-colors duration-300 hover:border-blue-500 hover:text-gray-800 dark:hover:text-gray-200 sm:mx-5"
+								key={i}
+								{...link}
+							/>
+						);
+					})}
 				</div>
 			</Container>
 		</nav>

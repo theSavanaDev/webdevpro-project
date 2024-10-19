@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getCachedGlobal } from "@/lib/get-global";
 
 import { Separator } from "@/components/ui/separator";
+import { CMSLink } from "@/components/cms-link";
 import { Container } from "@/components/container";
 import { RenderImage } from "@/components/render-image";
 
@@ -38,45 +39,27 @@ export const FooterBlock = async () => {
 							<div className="text-justify">
 								<h3 className="uppercase text-gray-700 dark:text-white">Discover</h3>
 								<div>
-									{footer.discover?.map((discoverLinkItem) => (
-										<Link
-											key={discoverLinkItem.link.url}
-											href={discoverLinkItem.link.url !== null && discoverLinkItem.link.url !== undefined ? discoverLinkItem.link.url : "/"}
-											className="mt-2 block text-sm text-gray-600 hover:underline dark:text-gray-400"
-										>
-											{discoverLinkItem.link.label}
-										</Link>
-									))}
+									{footer.discover?.map(({ link }, i) => {
+										return <CMSLink className="mt-2 block text-sm text-gray-600 hover:underline dark:text-gray-400" key={i} {...link} />;
+									})}
 								</div>
 							</div>
 
 							<div className="text-justify">
 								<h3 className="uppercase text-gray-700 dark:text-white">Legal</h3>
 								<div>
-									{footer.legal?.map((legalLinkItem) => (
-										<Link
-											key={legalLinkItem.link.url}
-											href={legalLinkItem.link.url !== null && legalLinkItem.link.url !== undefined ? legalLinkItem.link.url : "/"}
-											className="mt-2 block text-sm text-gray-600 hover:underline dark:text-gray-400"
-										>
-											{legalLinkItem.link.label}
-										</Link>
-									))}
+									{footer.legal?.map(({ link }, i) => {
+										return <CMSLink className="mt-2 block text-sm text-gray-600 hover:underline dark:text-gray-400" key={i} {...link} />;
+									})}
 								</div>
 							</div>
 
 							<div className="text-justify">
 								<h3 className="uppercase text-gray-700 dark:text-white">Miscellaneous</h3>
 								<div>
-									{footer.miscellaneous?.map((miscLinkItem) => (
-										<Link
-											key={miscLinkItem.link.url}
-											href={miscLinkItem.link.url !== null && miscLinkItem.link.url !== undefined ? miscLinkItem.link.url : "/"}
-											className="mt-2 block text-sm text-gray-600 hover:underline dark:text-gray-400"
-										>
-											{miscLinkItem.link.label}
-										</Link>
-									))}
+									{footer.miscellaneous?.map(({ link }, i) => {
+										return <CMSLink className="mt-2 block text-sm text-gray-600 hover:underline dark:text-gray-400" key={i} {...link} />;
+									})}
 								</div>
 							</div>
 						</div>
