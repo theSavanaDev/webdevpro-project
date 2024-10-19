@@ -20,11 +20,7 @@ type Props = {
 	scroll?: boolean;
 };
 
-function useClickableCard<T extends HTMLElement>({
-	external = false,
-	newTab = false,
-	scroll = true,
-}: Props): UseClickableCardType<T> {
+function useClickableCard<T extends HTMLElement>({ external = false, newTab = false, scroll = true }: Props): UseClickableCardType<T> {
 	const router = useRouter();
 	const card = useRef<T>(null);
 	const link = useRef<HTMLAnchorElement>(null);

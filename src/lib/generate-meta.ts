@@ -4,19 +4,13 @@ import { Page, Post } from "@/payload-types";
 
 import { mergeOpenGraph } from "@/lib/merge-open-graph";
 
-const serverURL =
-	process.env.NODE_ENV === "development"
-		? process.env.NEXT_PUBLIC_SERVER_URL_DEV!
-		: process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
+const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
 export const generateMeta = async (args: { doc: Page | Post }): Promise<Metadata> => {
 	const { doc } = args || {};
 
 	const ogImage =
-		typeof doc?.meta?.image === "object" &&
-		doc.meta.image !== null &&
-		"url" in doc.meta.image &&
-		`${serverURL}${doc.meta.image.url}`;
+		typeof doc?.meta?.image === "object" && doc.meta.image !== null && "url" in doc.meta.image && `${serverURL}${doc.meta.image.url}`;
 
 	const title = doc?.meta?.title ? doc?.meta?.title + " | WebDevPro" : "WebDevPro";
 

@@ -1,4 +1,4 @@
-import { formatSlugField } from "@/payload/fields/slug/hooks/formatSlug";
+import { formatSlugField } from "@/payload/fields/slug/hooks/format-slug";
 
 import type { CheckboxField, TextField } from "payload";
 

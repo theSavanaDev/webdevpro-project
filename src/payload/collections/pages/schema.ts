@@ -1,10 +1,4 @@
-import {
-	MetaDescriptionField,
-	MetaImageField,
-	MetaTitleField,
-	OverviewField,
-	PreviewField,
-} from "@payloadcms/plugin-seo/fields";
+import { MetaDescriptionField, MetaImageField, MetaTitleField, OverviewField, PreviewField } from "@payloadcms/plugin-seo/fields";
 
 import { generatePreviewPath } from "@/lib/generate-preview-path";
 
@@ -18,10 +12,7 @@ import { revalidatePage } from "@/payload/collections/pages/hooks/revalidate-pag
 
 import type { CollectionConfig } from "payload";
 
-const publicURL =
-	process.env.NODE_ENV === "development"
-		? process.env.NEXT_PUBLIC_SERVER_URL_DEV!
-		: process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
+const publicURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
 const Pages: CollectionConfig = {
 	slug: "pages",

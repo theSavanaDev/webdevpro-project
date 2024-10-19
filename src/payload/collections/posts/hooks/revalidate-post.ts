@@ -4,11 +4,7 @@ import type { CollectionAfterChangeHook } from "payload";
 
 import type { Post } from "@/payload-types";
 
-export const revalidatePost: CollectionAfterChangeHook<Post> = ({
-	doc,
-	previousDoc,
-	req: { payload },
-}) => {
+export const revalidatePost: CollectionAfterChangeHook<Post> = ({ doc, previousDoc, req: { payload } }) => {
 	if (doc._status === "published") {
 		const path = `/posts/${doc.slug}`;
 

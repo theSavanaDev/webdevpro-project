@@ -1,5 +1,3 @@
-import { slugField } from "@/payload/fields/slug";
-
 import { anyone } from "@/payload/access/anyone";
 import { authenticated } from "@/payload/access/authenticated";
 
