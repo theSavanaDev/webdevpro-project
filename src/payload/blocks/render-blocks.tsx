@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Fragment } from "react";
 
-import { HeroHomepageBlock } from "@/payload/blocks/hero-homepage/component";
+import { HeroBlock } from "@/payload/blocks/hero/component";
 
 import type { Page } from "@/payload-types";
 
@@ -11,7 +11,7 @@ type RenderBlocksProps = {
 
 // mapping block slugs to their respective components
 const blockComponents = {
-	heroHomepage: HeroHomepageBlock,
+	hero: HeroBlock,
 };
 
 export const RenderBlocks = (props: RenderBlocksProps) => {
@@ -30,7 +30,7 @@ export const RenderBlocks = (props: RenderBlocksProps) => {
 
 						if (Block) {
 							return (
-								<div className="my-16" key={index}>
+								<div key={index}>
 									<Block {...block} />
 								</div>
 							);

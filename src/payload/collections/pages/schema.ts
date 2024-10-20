@@ -10,7 +10,7 @@ import { authenticatedOrPublished } from "@/payload/access/authenticated-or-publ
 import { populatePublishedAt } from "@/payload/hooks/populate-published-at";
 import { revalidatePage } from "@/payload/collections/pages/hooks/revalidate-page";
 
-import { HeroHomepage } from "@/payload/blocks/hero-homepage/schema";
+import { Hero } from "@/payload/blocks/hero/schema";
 
 import type { CollectionConfig } from "payload";
 
@@ -65,8 +65,9 @@ const Pages: CollectionConfig = {
 					fields: [
 						{
 							name: "layout",
+							label: "Layout",
 							type: "blocks",
-							blocks: [HeroHomepage],
+							blocks: [Hero],
 							required: true,
 						},
 					],

@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Inter as FontSans } from "next/font/google";
 
 import { LivePreviewListener } from "@/components/live-preview-listener";
@@ -16,7 +17,7 @@ const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
 const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head>

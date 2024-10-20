@@ -65,12 +65,13 @@ export interface Page {
   id: string;
   title: string;
   layout: {
-    heroTitle?: string | null;
-    heroMessage?: string | null;
-    heroImage: string | Media;
+    type: 'homepage' | 'subpage';
+    title: string;
+    message?: string | null;
+    coverImage: string | Media;
     id?: string | null;
     blockName?: string | null;
-    blockType: 'heroHomepage';
+    blockType: 'hero';
   }[];
   meta?: {
     title?: string | null;

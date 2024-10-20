@@ -18,13 +18,15 @@ export const HeaderBlock = async () => {
 	return (
 		<nav className="bg-white shadow dark:bg-gray-800">
 			<Container className="flex justify-between py-5 capitalize text-gray-500 dark:text-gray-300">
-				<Link href="/" className="flex items-center justify-center">
-					<div className="relative h-6 w-6 text-gray-800">
-						<RenderImage imageAlt={`${serverURL}${logoAlt}`} imageSrc={`${serverURL}${logoUrl}`} />
-					</div>
+				<div>
+					<Link href="/" className="flex">
+						<div className="relative h-6 w-6 text-gray-800">
+							<RenderImage imageAlt={`${serverURL}${logoAlt}`} imageSrc={`${serverURL}${logoUrl}`} />
+						</div>
 
-					<span className="text-xl font-bold text-gray-800 dark:text-gray-200">{header.name}</span>
-				</Link>
+						<p className="text-xl font-bold text-gray-800 dark:text-gray-200">{header.name}</p>
+					</Link>
+				</div>
 
 				<div>
 					{header.heading.map(({ link }, i) => {

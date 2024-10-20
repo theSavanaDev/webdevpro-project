@@ -27,7 +27,7 @@ export const FooterBlock = async () => {
 									<RenderImage imageAlt={`${serverURL}${logoAlt}`} imageSrc={`${serverURL}${logoUrl}`} />
 								</div>
 
-								<span className="text-xl font-bold text-gray-800 dark:text-gray-200">{footer.name}</span>
+								<p className="text-xl font-bold text-gray-800 dark:text-gray-200">{footer.name}</p>
 							</Link>
 
 							<p className="mt-2 text-left text-gray-500 dark:text-gray-400">{footer.description}</p>
