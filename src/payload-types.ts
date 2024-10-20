@@ -593,8 +593,10 @@ export interface PayloadMigration {
  */
 export interface Header {
   id: string;
-  logo: string | Media;
-  name: string;
+  common: {
+    logo: string | Media;
+    name: string;
+  };
   heading: {
     link: {
       type?: ('reference' | 'custom') | null;
@@ -617,10 +619,12 @@ export interface Header {
  */
 export interface Footer {
   id: string;
-  logo: string | Media;
-  name: string;
-  description: string;
-  copyright: string;
+  common: {
+    logo: string | Media;
+    name: string;
+    description: string;
+    copyright: string;
+  };
   discover?:
     | {
         link: {

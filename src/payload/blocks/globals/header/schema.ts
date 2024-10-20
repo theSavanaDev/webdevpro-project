@@ -11,7 +11,9 @@ const Header: GlobalConfig = {
 	},
 	fields: [
 		{
-			type: "row",
+			name: "common",
+			label: "Common Properties",
+			type: "group",
 			fields: [
 				{
 					name: "logo",
@@ -33,6 +35,9 @@ const Header: GlobalConfig = {
 					},
 				},
 			],
+			admin: {
+				hideGutter: true,
+			},
 		},
 		{
 			name: "heading",

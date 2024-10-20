@@ -11,7 +11,9 @@ const Footer: GlobalConfig = {
 	},
 	fields: [
 		{
-			type: "row",
+			name: "common",
+			label: "Common Properties",
+			type: "group",
 			fields: [
 				{
 					name: "logo",
@@ -32,11 +34,6 @@ const Footer: GlobalConfig = {
 						width: "50%",
 					},
 				},
-			],
-		},
-		{
-			type: "row",
-			fields: [
 				{
 					name: "description",
 					label: "Site Description",
@@ -56,6 +53,9 @@ const Footer: GlobalConfig = {
 					},
 				},
 			],
+			admin: {
+				hideGutter: true,
+			},
 		},
 		{
 			name: "discover",

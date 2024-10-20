@@ -1,16 +1,20 @@
 import Link from "next/link";
-import { Rocket } from "lucide-react";
 
 import { getCachedGlobal } from "@/lib/get-global";
 
 import { Separator } from "@/components/ui/separator";
 import { CMSLink } from "@/components/cms-link";
 import { Container } from "@/components/container";
+import { RenderImage } from "@/components/render-image";
 
 import type { Footer } from "@/payload-types";
 
+const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
+
 export const FooterBlock = async () => {
 	const footer = (await getCachedGlobal("footer", 1)()) as Footer;
+	const logoURL = footer.common.logo && typeof footer.common.logo === "object" ? footer.common.logo.url : null;
+	const logoALT = footer.common.logo && typeof footer.common.logo === "object" ? footer.common.logo.alt : null;
 
 	return (
 		<div className="bg-white dark:bg-gray-900">
@@ -19,12 +23,14 @@ export const FooterBlock = async () => {
 					<div className="w-full lg:w-2/5">
 						<div>
 							<Link href="/" className="flex items-center gap-2 text-gray-800 dark:text-gray-200">
-								<Rocket className="h-8 w-8" />
+								<div className="relative h-8 w-8">
+									<RenderImage imageSrc={`${serverURL}${logoURL}`} imageAlt={`${serverURL}${logoALT}`} />
+								</div>
 
-								<p className="text-xl font-bold">{footer.name}</p>
+								<p className="text-xl font-bold">{footer.common.name}</p>
 							</Link>
 
-							<p className="mt-2 text-left text-gray-500 dark:text-gray-400">{footer.description}</p>
+							<p className="mt-2 text-left text-gray-500 dark:text-gray-400">{footer.common.description}</p>
 						</div>
 					</div>
 
@@ -63,7 +69,7 @@ export const FooterBlock = async () => {
 				<Separator className="my-6 bg-gray-200 dark:bg-gray-700" />
 
 				<div>
-					<p className="text-center text-gray-500 dark:text-gray-400">{footer.copyright}</p>
+					<p className="text-center text-gray-500 dark:text-gray-400">{footer.common.copyright}</p>
 				</div>
 			</Container>
 		</div>
