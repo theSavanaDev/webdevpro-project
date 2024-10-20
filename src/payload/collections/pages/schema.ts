@@ -12,6 +12,7 @@ import { revalidatePage } from "@/payload/collections/pages/hooks/revalidate-pag
 
 import { CallToAction } from "@/payload/blocks/call-to-action/schema";
 import { Content } from "@/payload/blocks/content/schema";
+import { ContentColumns } from "@/payload/blocks/content-columns/schema";
 import { Hero } from "@/payload/blocks/hero/schema";
 
 import type { CollectionConfig } from "payload";
@@ -69,7 +70,7 @@ const Pages: CollectionConfig = {
 							name: "layout",
 							label: "Layout",
 							type: "blocks",
-							blocks: [Hero, Content, CallToAction],
+							blocks: [Hero, Content, ContentColumns, CallToAction],
 							required: true,
 						},
 					],

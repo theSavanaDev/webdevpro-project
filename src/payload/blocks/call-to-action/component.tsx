@@ -10,7 +10,7 @@ type CallToActionBlockProps = Extract<Page["layout"][0], { blockType: "cta" }>;
 
 export const CallToActionBlock = ({ links, richText }: CallToActionBlockProps & { id?: string }) => {
 	return (
-		<Container className="my-12">
+		<Container className="my-16">
 			<div className="flex flex-col gap-8 rounded border border-border bg-card p-4 md:flex-row md:items-center md:justify-between">
 				<div className="flex max-w-[48rem] items-center">
 					{richText && <RichText className="mb-0" content={richText} enableGutter={false} />}

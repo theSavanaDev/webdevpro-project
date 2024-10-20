@@ -1,9 +1,10 @@
 // @ts-nocheck
 import { Fragment } from "react";
 
-import { ContentBlock } from "@/payload/blocks/content/component";
-import { HeroBlock } from "@/payload/blocks/hero/component";
 import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
+import { ContentBlock } from "@/payload/blocks/content/component";
+import { ContentColumnsBlock } from "@/payload/blocks/content-columns/component";
+import { HeroBlock } from "@/payload/blocks/hero/component";
 
 import type { Page } from "@/payload-types";
 
@@ -15,6 +16,7 @@ type RenderBlocksProps = {
 const blockComponents = {
 	cta: CallToActionBlock,
 	content: ContentBlock,
+	contentColumns: ContentColumnsBlock,
 	hero: HeroBlock,
 };
 
