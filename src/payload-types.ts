@@ -64,15 +64,38 @@ export interface UserAuthOperations {
 export interface Page {
   id: string;
   title: string;
-  layout: {
-    type: 'homepage' | 'subpage';
-    title: string;
-    message?: string | null;
-    coverImage: string | Media;
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'hero';
-  }[];
+  layout: (
+    | {
+        type: 'homepage' | 'subpage';
+        title: string;
+        message?: string | null;
+        coverImage: string | Media;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }
+    | {
+        prose?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        prose_html?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'content';
+      }
+  )[];
   meta?: {
     title?: string | null;
     image?: (string | null) | Media;

@@ -1,11 +1,4 @@
-import {
-	BlocksFeature,
-	FixedToolbarFeature,
-	HTMLConverterFeature,
-	InlineToolbarFeature,
-	lexicalEditor,
-	lexicalHTML,
-} from "@payloadcms/richtext-lexical";
+import { BlocksFeature, FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML } from "@payloadcms/richtext-lexical";
 
 import { MetaDescriptionField, MetaImageField, MetaTitleField, OverviewField, PreviewField } from "@payloadcms/plugin-seo/fields";
 
@@ -82,7 +75,6 @@ const Posts: CollectionConfig = {
 										// BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
 										FixedToolbarFeature(),
 										HTMLConverterFeature({}),
-										InlineToolbarFeature(),
 									];
 								},
 							}),

@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { Fragment } from "react";
 
+import { ContentBlock } from "@/payload/blocks/content/component";
 import { HeroBlock } from "@/payload/blocks/hero/component";
 
 import type { Page } from "@/payload-types";
@@ -11,6 +12,7 @@ type RenderBlocksProps = {
 
 // mapping block slugs to their respective components
 const blockComponents = {
+	content: ContentBlock,
 	hero: HeroBlock,
 };
 
