@@ -1,20 +1,16 @@
 import Link from "next/link";
+import { Rocket } from "lucide-react";
 
 import { getCachedGlobal } from "@/lib/get-global";
 
 import { Separator } from "@/components/ui/separator";
 import { CMSLink } from "@/components/cms-link";
 import { Container } from "@/components/container";
-import { RenderImage } from "@/components/render-image";
 
 import type { Footer } from "@/payload-types";
 
-const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
-
 export const FooterBlock = async () => {
 	const footer = (await getCachedGlobal("footer", 1)()) as Footer;
-	const logoAlt = footer.logo && typeof footer.logo === "object" ? footer.logo.alt : null;
-	const logoUrl = footer.logo && typeof footer.logo === "object" ? footer.logo.url : null;
 
 	return (
 		<div className="bg-white dark:bg-gray-900">
@@ -22,12 +18,10 @@ export const FooterBlock = async () => {
 				<div className="lg:flex">
 					<div className="w-full lg:w-2/5">
 						<div>
-							<Link href="/" className="flex">
-								<div className="relative h-6 w-6 text-gray-800">
-									<RenderImage imageAlt={`${serverURL}${logoAlt}`} imageSrc={`${serverURL}${logoUrl}`} />
-								</div>
+							<Link href="/" className="flex items-center gap-2 text-gray-800 dark:text-gray-200">
+								<Rocket className="h-8 w-8" />
 
-								<p className="text-xl font-bold text-gray-800 dark:text-gray-200">{footer.name}</p>
+								<p className="text-xl font-bold">{footer.name}</p>
 							</Link>
 
 							<p className="mt-2 text-left text-gray-500 dark:text-gray-400">{footer.description}</p>
