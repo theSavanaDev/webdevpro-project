@@ -80,7 +80,7 @@ const Posts: CollectionConfig = {
 							}),
 						},
 						/* converts the referenced lexical richText field into HTML */
-						lexicalHTML("caption", { name: "caption_html" }),
+						lexicalHTML("content", { name: "content_html" }),
 					],
 				},
 				{
