@@ -96,9 +96,10 @@ export interface Page {
         blockType: 'content';
       }
     | {
-        columns?:
+        heading: string;
+        content?:
           | {
-              richText?: {
+              prose?: {
                 root: {
                   type: string;
                   children: {
@@ -113,25 +114,13 @@ export interface Page {
                 };
                 [k: string]: unknown;
               } | null;
-              size?: ('third' | 'half' | 'full') | null;
-              enableLink?: boolean | null;
-              link?: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null;
-                url?: string | null;
-                label: string;
-                appearance?: ('default' | 'outline') | null;
-              };
+              prose_html?: string | null;
               id?: string | null;
             }[]
           | null;
         id?: string | null;
         blockName?: string | null;
-        blockType: 'contentColumns';
+        blockType: 'contentGrid';
       }
     | {
         richText?: {
