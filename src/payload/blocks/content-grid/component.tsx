@@ -14,7 +14,7 @@ export const ContentGridBlock = ({ content, heading }: ContentGridBlockProps) =>
 		<Container className="my-16">
 			<h3 className="mb-12 text-3xl font-bold">{heading}</h3>
 
-			<div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+			<div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
 				{content.map((element) => (
 					<div key={element.id} className="rounded border border-border bg-card p-3">
 						<RenderHTML html_content={element.prose_html} />

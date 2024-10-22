@@ -45,7 +45,7 @@ export const MultimediaBlock = (props: Props) => {
 			{position === "default" && <Media imgClassName={cn("rounded", imgClassName)} resource={media} src={staticImage} />}
 
 			{caption && (
-				<div className={cn("mt-6", { container: position === "fullscreen" && !disableInnerContainer }, captionClassName)}>
+				<div className={cn("mt-5 items-center text-sm", { container: position === "fullscreen" && !disableInnerContainer }, captionClassName)}>
 					<RichText content={caption} enableGutter={false} />
 				</div>
 			)}
