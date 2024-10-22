@@ -12,6 +12,9 @@ import { authenticatedOrPublished } from "@/payload/access/authenticated-or-publ
 import { populateAuthors } from "@/payload/collections/posts/hooks/populate-authors";
 import { revalidatePost } from "@/payload/collections/posts/hooks/revalidate-post";
 
+import { Banner } from "@/payload/blocks/banner/schema";
+import { Multimedia } from "@/payload/blocks/multimedia/schema";
+
 import type { CollectionConfig } from "payload";
 
 const publicURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
@@ -70,12 +73,7 @@ const Posts: CollectionConfig = {
 							required: true,
 							editor: lexicalEditor({
 								features: ({ rootFeatures }) => {
-									return [
-										...rootFeatures,
-										// BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
-										FixedToolbarFeature(),
-										HTMLConverterFeature({}),
-									];
+									return [...rootFeatures, BlocksFeature({ blocks: [Banner, Multimedia] }), FixedToolbarFeature(), HTMLConverterFeature({})];
 								},
 							}),
 						},
