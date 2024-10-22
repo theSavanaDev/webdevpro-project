@@ -123,8 +123,8 @@ export interface Page {
         blockType: 'contentGrid';
       }
     | {
-        position?: ('default' | 'fullscreen') | null;
         media: string | Media;
+        position?: ('default' | 'fullscreen') | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'multimedia';
@@ -784,7 +784,6 @@ export interface Footer {
  * via the `definition` "Banner".
  */
 export interface Banner {
-  style: 'info' | 'warning' | 'error' | 'success';
   content: {
     root: {
       type: string;
@@ -800,6 +799,7 @@ export interface Banner {
     };
     [k: string]: unknown;
   };
+  style: 'info' | 'warning' | 'error' | 'success';
   id?: string | null;
   blockName?: string | null;
   blockType: 'banner';
@@ -809,8 +809,8 @@ export interface Banner {
  * via the `definition` "Code".
  */
 export interface Code {
-  language?: ('typescript' | 'javascript' | 'css') | null;
   code: string;
+  language?: ('typescript' | 'javascript' | 'css') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'code';

@@ -11,24 +11,20 @@ import { RenderBlocks } from "@/payload/blocks/render-blocks";
 import type { Page } from "@/payload-types";
 
 export async function generateStaticParams() {
-	try {
-		const data = await getPayloadHMR({ config: config });
+	const data = await getPayloadHMR({ config: config });
 
-		const pages = await data.find({
-			collection: "pages",
-			draft: false,
-			limit: 1000,
-			overrideAccess: false,
-		});
+	const pages = await data.find({
+		collection: "pages",
+		draft: false,
+		limit: 1000,
+		overrideAccess: false,
+	});
 
-		return pages.docs
-			?.filter((doc: Page) => {
-				return doc.slug !== "home";
-			})
-			.map(({ slug }: Page) => slug);
-	} catch (error) {
-		console.log("pages - generateStaticParams:", error);
-	}
+	return pages.docs
+		?.filter((doc: Page) => {
+			return doc.slug !== "home";
+		})
+		.map(({ slug }: Page) => slug);
 }
 
 export default async function Page({ params }: { params: Promise<{ slug?: string }> }) {
@@ -45,7 +41,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
 	const { layout } = page;
 
 	return (
-		<article className="pb-8 pt-5">
+		<article className="pb-16 pt-5">
 			<RenderBlocks blocks={layout ?? []} />
 		</article>
 	);
@@ -60,27 +56,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug?: st
 }
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
-	try {
-		const { isEnabled: draft } = await draftMode();
+	const { isEnabled: draft } = await draftMode();
 
-		const parsedSlug = decodeURIComponent(slug);
+	const parsedSlug = decodeURIComponent(slug);
 
-		const data = await getPayloadHMR({ config: config });
+	const data = await getPayloadHMR({ config: config });
 
-		const result = await data.find({
-			collection: "pages",
-			draft,
-			limit: 1,
-			overrideAccess: true,
-			where: {
-				slug: {
-					equals: parsedSlug,
-				},
+	const result = await data.find({
+		collection: "pages",
+		draft,
+		limit: 1,
+		overrideAccess: true,
+		where: {
+			slug: {
+				equals: parsedSlug,
 			},
-		});
+		},
+	});
 
-		return result.docs?.[0] || null;
-	} catch (error) {
-		console.log("pages - queryPageBySlug:", error);
-	}
+	return result.docs?.[0] || null;
 });

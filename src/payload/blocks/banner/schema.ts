@@ -11,6 +11,17 @@ export const Banner: Block = {
 	},
 	fields: [
 		{
+			name: "content",
+			label: false,
+			type: "richText",
+			required: true,
+			editor: lexicalEditor({
+				features: ({ rootFeatures }) => {
+					return [...rootFeatures, FixedToolbarFeature()];
+				},
+			}),
+		},
+		{
 			name: "style",
 			label: "Style",
 			type: "select",
@@ -22,17 +33,6 @@ export const Banner: Block = {
 				{ label: "Error", value: "error" },
 				{ label: "Success", value: "success" },
 			],
-		},
-		{
-			name: "content",
-			label: false,
-			type: "richText",
-			required: true,
-			editor: lexicalEditor({
-				features: ({ rootFeatures }) => {
-					return [...rootFeatures, FixedToolbarFeature()];
-				},
-			}),
 		},
 	],
 };

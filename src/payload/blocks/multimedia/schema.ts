@@ -8,6 +8,13 @@ export const Multimedia: Block = {
 	},
 	fields: [
 		{
+			name: "media",
+			label: "Media",
+			type: "upload",
+			relationTo: "media",
+			required: true,
+		},
+		{
 			name: "position",
 			label: "Position",
 			type: "select",
@@ -22,13 +29,6 @@ export const Multimedia: Block = {
 					value: "fullscreen",
 				},
 			],
-		},
-		{
-			name: "media",
-			label: "Media",
-			type: "upload",
-			relationTo: "media",
-			required: true,
 		},
 	],
 };

@@ -9,6 +9,12 @@ export const Code: Block = {
 	},
 	fields: [
 		{
+			name: "code",
+			type: "code",
+			label: false,
+			required: true,
+		},
+		{
 			name: "language",
 			label: "Language",
 			type: "select",
@@ -27,12 +33,6 @@ export const Code: Block = {
 					value: "css",
 				},
 			],
-		},
-		{
-			name: "code",
-			type: "code",
-			label: false,
-			required: true,
 		},
 	],
 };

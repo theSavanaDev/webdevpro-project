@@ -46,7 +46,7 @@ export const PostHero = ({ post }: { post: Post }) => {
 							{/* author section */}
 							{populatedAuthors && (
 								<div className="flex flex-col gap-1">
-									<p className="text-sm font-semibold text-white">Author</p>
+									<p className="text-sm font-semibold uppercase text-white">Written By</p>
 									<p className="text-sm text-white">
 										{populatedAuthors.map((author, index) => {
 											const { name } = author;
@@ -55,10 +55,10 @@ export const PostHero = ({ post }: { post: Post }) => {
 												<Fragment key={index}>
 													{name}
 
-													{/* Add a comma after all authors except the last two */}
+													{/* add a comma after all authors except the last two */}
 													{index < populatedAuthors.length - 2 && <Fragment>, </Fragment>}
 
-													{/* Add "and" between the second-to-last and last author */}
+													{/* add "and" between the second-to-last and last author */}
 													{index === populatedAuthors.length - 2 && <Fragment>, and </Fragment>}
 												</Fragment>
 											);
@@ -70,7 +70,7 @@ export const PostHero = ({ post }: { post: Post }) => {
 							{/* date published section */}
 							{publishedAt && (
 								<div className="flex flex-col gap-1">
-									<p className="text-sm font-semibold text-white">Date Published</p>
+									<p className="text-sm font-semibold uppercase text-white">Date Published</p>
 									<p className="text-sm text-white">
 										<time dateTime={publishedAt}>{formatDateTime(publishedAt)}</time>
 									</p>
