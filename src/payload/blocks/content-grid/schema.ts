@@ -4,6 +4,10 @@ import type { Block } from "payload";
 
 export const ContentGrid: Block = {
 	slug: "contentGrid",
+	labels: {
+		singular: "Content Grid Block",
+		plural: "Content Grid Blocks",
+	},
 	fields: [
 		{
 			name: "heading",

@@ -5,8 +5,8 @@ import { Block } from "payload";
 export const Content: Block = {
 	slug: "content",
 	labels: {
-		singular: "Content",
-		plural: "Content",
+		singular: "Content Block",
+		plural: "Content Blocks",
 	},
 	fields: [
 		{

@@ -5,6 +5,7 @@ import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
 import { ContentBlock } from "@/payload/blocks/content/component";
 import { ContentGridBlock } from "@/payload/blocks/content-grid/component";
 import { HeroBlock } from "@/payload/blocks/hero/component";
+import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 
 import type { Page } from "@/payload-types";
 
@@ -18,6 +19,7 @@ const blockComponents = {
 	content: ContentBlock,
 	contentGrid: ContentGridBlock,
 	hero: HeroBlock,
+	multimedia: MultimediaBlock,
 };
 
 export const RenderBlocks = (props: RenderBlocksProps) => {

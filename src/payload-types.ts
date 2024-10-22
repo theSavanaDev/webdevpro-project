@@ -123,6 +123,13 @@ export interface Page {
         blockType: 'contentGrid';
       }
     | {
+        position?: ('default' | 'fullscreen') | null;
+        media: string | Media;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'multimedia';
+      }
+    | {
         richText?: {
           root: {
             type: string;

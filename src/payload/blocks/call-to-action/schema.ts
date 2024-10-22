@@ -7,8 +7,8 @@ import type { Block } from "payload";
 export const CallToAction: Block = {
 	slug: "cta",
 	labels: {
-		singular: "Call To Action",
-		plural: "Calls To Action",
+		singular: "Call To Action Block",
+		plural: "Calls To Action Blocks",
 	},
 	fields: [
 		{

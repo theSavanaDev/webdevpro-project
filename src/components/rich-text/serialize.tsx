@@ -1,4 +1,4 @@
-import React, { Fragment, JSX } from "react";
+import { Fragment, JSX } from "react";
 
 import { DefaultNodeTypes, SerializedBlockNode } from "@payloadcms/richtext-lexical";
 
@@ -7,7 +7,7 @@ import { CMSLink } from "@/components/cms-link";
 //import { BannerBlock } from "@/blocks/Banner/Component";
 import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
 //import { CodeBlock, CodeBlockProps } from "@/blocks/Code/Component";
-//import { MediaBlock } from "@/blocks/MediaBlock/Component";
+import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 
 import { IS_BOLD, IS_CODE, IS_ITALIC, IS_STRIKETHROUGH, IS_SUBSCRIPT, IS_SUPERSCRIPT, IS_UNDERLINE } from "@/components/rich-text/node-format";
 
@@ -17,7 +17,7 @@ import type { Page } from "@/payload-types";
 export type NodeTypes =
 	| DefaultNodeTypes
 	| SerializedBlockNode<
-			Extract<Page["layout"][0], { blockType: "cta" }> | Extract<Page["layout"][0], { blockType: "mediaBlock" }>
+			Extract<Page["layout"][0], { blockType: "cta" }> | Extract<Page["layout"][0], { blockType: "multimedia" }>
 			/*| BannerBlockProps
 			| CodeBlockProps */
 	  >;
@@ -35,13 +35,16 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 				}
 
 				if (node.type === "text") {
-					let text = <React.Fragment key={index}>{node.text}</React.Fragment>;
+					let text = <Fragment key={index}>{node.text}</Fragment>;
+
 					if (node.format & IS_BOLD) {
 						text = <strong key={index}>{text}</strong>;
 					}
+
 					if (node.format & IS_ITALIC) {
 						text = <em key={index}>{text}</em>;
 					}
+
 					if (node.format & IS_STRIKETHROUGH) {
 						text = (
 							<span key={index} style={{ textDecoration: "line-through" }}>
@@ -49,6 +52,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 							</span>
 						);
 					}
+
 					if (node.format & IS_UNDERLINE) {
 						text = (
 							<span key={index} style={{ textDecoration: "underline" }}>
@@ -56,12 +60,15 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 							</span>
 						);
 					}
+
 					if (node.format & IS_CODE) {
 						text = <code key={index}>{node.text}</code>;
 					}
+
 					if (node.format & IS_SUBSCRIPT) {
 						text = <sub key={index}>{text}</sub>;
 					}
+
 					if (node.format & IS_SUPERSCRIPT) {
 						text = <sup key={index}>{text}</sup>;
 					}
@@ -85,6 +92,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 								}
 							}
 						}
+
 						return serializeLexical({ nodes: node.children as NodeTypes[] });
 					}
 				};
@@ -103,9 +111,9 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 					switch (blockType) {
 						case "cta":
 							return <CallToActionBlock key={index} {...block} />;
-						/*case "mediaBlock":
+						case "multimedia":
 							return (
-								<MediaBlock
+								<MultimediaBlock
 									className="col-span-3 col-start-1"
 									imgClassName="m-0"
 									key={index}
@@ -115,7 +123,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 									disableInnerContainer={true}
 								/>
 							);
-						case "banner":
+						/*case "banner":
 							return <BannerBlock className="col-start-2 mb-4" key={index} {...block} />;
 						case "code":
 							return <CodeBlock className="col-start-2" key={index} {...block} />;*/
