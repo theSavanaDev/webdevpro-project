@@ -45,7 +45,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
 	const { layout } = page;
 
 	return (
-		<article className="pb-16 pt-10">
+		<article className="pb-8 pt-5">
 			<RenderBlocks blocks={layout ?? []} />
 		</article>
 	);
