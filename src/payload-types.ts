@@ -283,7 +283,6 @@ export interface Post {
     };
     [k: string]: unknown;
   };
-  content_html?: string | null;
   relatedPosts?: (string | Post)[] | null;
   categories?: (string | Category)[] | null;
   meta?: {
@@ -801,7 +800,6 @@ export interface Banner {
     };
     [k: string]: unknown;
   };
-  content_html?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'banner';

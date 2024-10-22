@@ -1,4 +1,4 @@
-import { BlocksFeature, FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML } from "@payloadcms/richtext-lexical";
+import { BlocksFeature, FixedToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 import { MetaDescriptionField, MetaImageField, MetaTitleField, OverviewField, PreviewField } from "@payloadcms/plugin-seo/fields";
 
@@ -74,17 +74,10 @@ const Posts: CollectionConfig = {
 							required: true,
 							editor: lexicalEditor({
 								features: ({ rootFeatures }) => {
-									return [
-										...rootFeatures,
-										BlocksFeature({ blocks: [Banner, Code, Multimedia] }),
-										FixedToolbarFeature(),
-										HTMLConverterFeature({}),
-									];
+									return [...rootFeatures, BlocksFeature({ blocks: [Banner, Code, Multimedia] }), FixedToolbarFeature()];
 								},
 							}),
 						},
-						/* converts the referenced lexical richText field into HTML */
-						lexicalHTML("content", { name: "content_html" }),
 					],
 				},
 				{

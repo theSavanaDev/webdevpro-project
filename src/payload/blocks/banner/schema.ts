@@ -1,4 +1,4 @@
-import { FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML } from "@payloadcms/richtext-lexical";
+import { FixedToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 import type { Block } from "payload";
 
@@ -30,11 +30,9 @@ export const Banner: Block = {
 			required: true,
 			editor: lexicalEditor({
 				features: ({ rootFeatures }) => {
-					return [...rootFeatures, FixedToolbarFeature(), HTMLConverterFeature({})];
+					return [...rootFeatures, FixedToolbarFeature()];
 				},
 			}),
 		},
-		/* converts the referenced lexical richText field into HTML */
-		lexicalHTML("content", { name: "content_html" }),
 	],
 };
