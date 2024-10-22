@@ -230,7 +230,7 @@ export interface Post {
     };
     [k: string]: unknown;
   };
-  caption_html?: string | null;
+  content_html?: string | null;
   relatedPosts?: (string | Post)[] | null;
   categories?: (string | Category)[] | null;
   meta?: {

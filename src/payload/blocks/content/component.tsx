@@ -7,7 +7,7 @@ type ContentBlockProps = {
 
 export const ContentBlock = ({ prose_html }: ContentBlockProps) => {
 	return (
-		<Container className="py-12">
+		<Container className="my-16 px-3">
 			<RenderHTML html_content={prose_html} />
 		</Container>
 	);
