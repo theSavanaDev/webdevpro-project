@@ -12,6 +12,7 @@ import { authenticatedOrPublished } from "@/payload/access/authenticated-or-publ
 import { populateAuthors } from "@/payload/collections/posts/hooks/populate-authors";
 import { revalidatePost } from "@/payload/collections/posts/hooks/revalidate-post";
 
+import { Code } from "@/payload/blocks/code/schema";
 import { Banner } from "@/payload/blocks/banner/schema";
 import { Multimedia } from "@/payload/blocks/multimedia/schema";
 
@@ -73,7 +74,12 @@ const Posts: CollectionConfig = {
 							required: true,
 							editor: lexicalEditor({
 								features: ({ rootFeatures }) => {
-									return [...rootFeatures, BlocksFeature({ blocks: [Banner, Multimedia] }), FixedToolbarFeature(), HTMLConverterFeature({})];
+									return [
+										...rootFeatures,
+										BlocksFeature({ blocks: [Banner, Code, Multimedia] }),
+										FixedToolbarFeature(),
+										HTMLConverterFeature({}),
+									];
 								},
 							}),
 						},

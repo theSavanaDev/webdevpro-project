@@ -6,7 +6,7 @@ import { CMSLink } from "@/components/cms-link";
 
 import { BannerBlock } from "@/payload/blocks/banner/component";
 import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
-//import { CodeBlock, CodeBlockProps } from "@/payload/blocks/code/component";
+import { CodeBlock, CodeBlockProps } from "@/payload/blocks/code/component";
 import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 
 import { IS_BOLD, IS_CODE, IS_ITALIC, IS_STRIKETHROUGH, IS_SUBSCRIPT, IS_SUPERSCRIPT, IS_UNDERLINE } from "@/components/rich-text/node-format";
@@ -17,8 +17,10 @@ import type { Page } from "@/payload-types";
 export type NodeTypes =
 	| DefaultNodeTypes
 	| SerializedBlockNode<
-			Extract<Page["layout"][0], { blockType: "cta" }> | Extract<Page["layout"][0], { blockType: "multimedia" }> | BannerBlockProps
-			/*| CodeBlockProps */
+			| Extract<Page["layout"][0], { blockType: "cta" }>
+			| Extract<Page["layout"][0], { blockType: "multimedia" }>
+			| BannerBlockProps
+			| CodeBlockProps
 	  >;
 
 type Props = {
@@ -124,8 +126,8 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
 							);
 						case "banner":
 							return <BannerBlock className="col-start-2 mb-4" key={index} {...block} />;
-						/*case "code":
-							return <CodeBlock className="col-start-2" key={index} {...block} />;*/
+						case "code":
+							return <CodeBlock className="col-start-2" key={index} {...block} />;
 						default:
 							return null;
 					}
