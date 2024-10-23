@@ -19,9 +19,9 @@ import type { Post } from "@/payload-types";
 type Args = { params: Promise<{ slug?: string }> };
 
 export async function generateStaticParams() {
-	const payload = await getPayloadHMR({ config: config });
+	const data = await getPayloadHMR({ config: config });
 
-	const posts = await payload.find({
+	const posts = await data.find({
 		collection: "posts",
 		draft: false,
 		limit: 1000,
@@ -78,9 +78,9 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
 
 	const parsedSlug = decodeURIComponent(slug);
 
-	const payload = await getPayloadHMR({ config: config });
+	const data = await getPayloadHMR({ config: config });
 
-	const result = await payload.find({
+	const result = await data.find({
 		collection: "posts",
 		draft,
 		limit: 1,
