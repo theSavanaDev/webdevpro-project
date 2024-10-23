@@ -7,6 +7,7 @@ import config from "@payload-config";
 
 import { generateMeta } from "@/lib/generate-meta";
 
+import { Container } from "@/components/container";
 import { RichText } from "@/components/rich-text";
 
 import { RelatedPosts } from "@/payload/blocks/related-posts/component";
@@ -49,13 +50,13 @@ export default async function Post({ params: paramsPromise }: Args) {
 			<PostHero post={post} />
 
 			<div className="flex flex-col items-center gap-4 pt-8">
-				<div className="container grid-rows-[1fr] lg:mx-0 lg:grid lg:grid-cols-[1fr_48rem_1fr]">
+				<Container className="grid-rows-[1fr] lg:mx-0 lg:grid lg:grid-cols-[1fr_48rem_1fr]">
 					<RichText
 						className="col-span-3 col-start-1 grid-rows-[1fr] lg:grid lg:grid-cols-subgrid"
 						content={post.content}
 						enableGutter={false}
 					/>
-				</div>
+				</Container>
 
 				{post.relatedPosts && post.relatedPosts.length > 0 && (
 					<RelatedPosts className="mt-12" docs={post.relatedPosts.filter((post) => typeof post === "object")} />

@@ -2,6 +2,7 @@ import { Fragment } from "react";
 
 import { formatDateTime } from "@/lib/format-date-time";
 
+import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/container";
 import { RenderImage } from "@/components/render-image";
 
@@ -27,14 +28,7 @@ export const PostHero = ({ post }: { post: Post }) => {
 
 									const titleToUse = categoryTitle || "Untitled category";
 
-									const isLast = index === categories.length - 1;
-
-									return (
-										<Fragment key={index}>
-											{titleToUse}
-											{!isLast && <Fragment>, &nbsp;</Fragment>}
-										</Fragment>
-									);
+									return <Badge key={index}>{titleToUse}</Badge>;
 								}
 								return null;
 							})}
