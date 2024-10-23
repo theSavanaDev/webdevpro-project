@@ -8,7 +8,7 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({ doc, previousD
 	if (doc._status === "published") {
 		const path = doc.slug === "home" ? "/" : `/${doc.slug}`;
 
-		payload.logger.info(`Revalidating page at: ${path}`);
+		payload.logger.info(`Revalidating page at ${path}...`);
 
 		revalidatePath(path);
 	}
@@ -17,7 +17,7 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({ doc, previousD
 	if (previousDoc?._status === "published" && doc._status !== "published") {
 		const oldPath = previousDoc.slug === "home" ? "/" : `/${previousDoc.slug}`;
 
-		payload.logger.info(`Revalidating old page at: ${oldPath}`);
+		payload.logger.info(`Revalidating old page at ${oldPath}...`);
 
 		revalidatePath(oldPath);
 	}
