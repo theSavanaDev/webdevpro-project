@@ -90,13 +90,26 @@ export interface Page {
           };
           [k: string]: unknown;
         } | null;
-        prose_html?: string | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'contentPad';
       }
     | {
-        heading: string;
+        introductoryContent: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
         content?:
           | {
               prose?: {
@@ -114,7 +127,6 @@ export interface Page {
                 };
                 [k: string]: unknown;
               } | null;
-              prose_html?: string | null;
               id?: string | null;
             }[]
           | null;
@@ -236,7 +248,6 @@ export interface PostsArchive {
     };
     [k: string]: unknown;
   } | null;
-  content_html?: string | null;
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: 'posts' | null;
   categories?: (string | Category)[] | null;
@@ -344,7 +355,6 @@ export interface ProductsArchive {
     };
     [k: string]: unknown;
   } | null;
-  content_html?: string | null;
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: 'products' | null;
   categories?: (string | Category)[] | null;

@@ -1,14 +1,14 @@
 import { Container } from "@/components/container";
-import { RenderHTML } from "@/components/render-html";
+import { RichText } from "@/components/rich-text";
 
 type ContentPadBlockProps = {
-	prose_html: string;
+	prose: object;
 };
 
-export const ContentPadBlock = ({ prose_html }: ContentPadBlockProps) => {
+export const ContentPadBlock = ({ prose }: ContentPadBlockProps) => {
 	return (
 		<Container className="my-16 px-3">
-			<RenderHTML html_content={prose_html} />
+			<RichText content={prose} enableGutter={false} />
 		</Container>
 	);
 };

@@ -1,23 +1,23 @@
 import { Container } from "@/components/container";
-import { RenderHTML } from "@/components/render-html";
+import { RichText } from "@/components/rich-text";
 
 type ContentGridBlockProps = {
 	content: {
 		id: string;
-		prose_html: string;
+		prose: object;
 	}[];
-	heading: string;
+	introductoryContent: object;
 };
 
-export const ContentGridBlock = ({ content, heading }: ContentGridBlockProps) => {
+export const ContentGridBlock = ({ content, introductoryContent }: ContentGridBlockProps) => {
 	return (
 		<Container className="my-16">
-			<h3 className="mb-12 text-3xl font-bold">{heading}</h3>
+			<RichText className="my-12 ml-0 max-w-[48rem]" content={introductoryContent} enableGutter={false} />
 
 			<div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
 				{content.map((element) => (
 					<div key={element.id} className="rounded border border-border bg-card p-3">
-						<RenderHTML html_content={element.prose_html} />
+						<RichText content={element.prose} enableGutter={false} />
 					</div>
 				))}
 			</div>

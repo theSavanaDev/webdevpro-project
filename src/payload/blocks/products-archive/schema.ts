@@ -1,4 +1,4 @@
-import { FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML } from "@payloadcms/richtext-lexical";
+import { FixedToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 import { Block } from "payload";
 
@@ -16,12 +16,10 @@ export const ProductsArchive: Block = {
 			type: "richText",
 			editor: lexicalEditor({
 				features: ({ rootFeatures }) => {
-					return [...rootFeatures, FixedToolbarFeature(), HTMLConverterFeature({})];
+					return [...rootFeatures, FixedToolbarFeature()];
 				},
 			}),
 		},
-		/* converts the referenced lexical richText field into HTML */
-		lexicalHTML("content", { name: "content_html" }),
 		{
 			name: "populateBy",
 			label: "Populate By",

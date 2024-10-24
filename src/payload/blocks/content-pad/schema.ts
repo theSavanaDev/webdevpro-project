@@ -1,4 +1,4 @@
-import { FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML } from "@payloadcms/richtext-lexical";
+import { FixedToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 import { Block } from "payload";
 
@@ -15,11 +15,9 @@ export const ContentPad: Block = {
 			type: "richText",
 			editor: lexicalEditor({
 				features: ({ rootFeatures }: any) => {
-					return [...rootFeatures, FixedToolbarFeature(), HTMLConverterFeature({})];
+					return [...rootFeatures, FixedToolbarFeature()];
 				},
 			}),
 		},
-		/* converts the referenced lexical richText field into HTML */
-		lexicalHTML("prose", { name: "prose_html" }),
 	],
 };

@@ -19,7 +19,7 @@ export const RichText = ({ className, content, enableGutter = true, enableProse 
 				{
 					container: enableGutter,
 					"max-w-none": !enableGutter,
-					"prose mx-auto dark:prose-invert": enableProse,
+					"prose mx-auto dark:prose-invert prose-a:text-blue-500 hover:prose-a:text-sky-500": enableProse,
 				},
 				className,
 			)}
