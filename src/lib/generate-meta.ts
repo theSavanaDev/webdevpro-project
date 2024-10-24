@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-import { Page, Post } from "@/payload-types";
+import { Page, Post, Product } from "@/payload-types";
 
 import { mergeOpenGraph } from "@/lib/merge-open-graph";
 
 const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
-export const generateMeta = async (args: { doc: Page | Post }): Promise<Metadata> => {
+export const generateMeta = async (args: { doc: Page | Post | Product }): Promise<Metadata> => {
 	const { doc } = args || {};
 
 	const ogImage =
