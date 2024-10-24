@@ -8,7 +8,7 @@ import { RichText } from "@/components/rich-text";
 import type { Post, PostsArchive as PostsArchiveBlockProps } from "@/payload-types";
 
 export const PostsArchiveBlock = async (props: PostsArchiveBlockProps & { id?: string }) => {
-	const { id, categories, introContent, limit: limitFromProps, populateBy, selectedDocs } = props;
+	const { id, categories, content, limit: limitFromProps, populateBy, selectedDocs } = props;
 
 	const limit = limitFromProps || 3;
 
@@ -50,9 +50,9 @@ export const PostsArchiveBlock = async (props: PostsArchiveBlockProps & { id?: s
 
 	return (
 		<Container className="my-16" id={`block-${id}`}>
-			{introContent && (
+			{content && (
 				<div className="mb-16">
-					<RichText className="ml-0 max-w-[48rem]" content={introContent} enableGutter={false} />
+					<RichText className="ml-0 max-w-[48rem]" content={content} enableGutter={false} />
 				</div>
 			)}
 			<PostsCollectionArchive posts={posts} />

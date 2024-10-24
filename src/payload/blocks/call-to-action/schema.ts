@@ -1,4 +1,4 @@
-import { FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML } from "@payloadcms/richtext-lexical";
+import { FixedToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 import { linkGroup } from "@/payload/fields/link-group";
 
@@ -7,8 +7,8 @@ import type { Block } from "payload";
 export const CallToAction: Block = {
 	slug: "cta",
 	labels: {
-		singular: "Call To Action Block",
-		plural: "Calls To Action Blocks",
+		singular: "Call to Action Block",
+		plural: "Calls to Action Blocks",
 	},
 	fields: [
 		{
@@ -17,12 +17,10 @@ export const CallToAction: Block = {
 			type: "richText",
 			editor: lexicalEditor({
 				features: ({ rootFeatures }) => {
-					return [...rootFeatures, FixedToolbarFeature(), HTMLConverterFeature({})];
+					return [...rootFeatures, FixedToolbarFeature()];
 				},
 			}),
 		},
-		/* converts the referenced lexical richText field into HTML */
-		lexicalHTML("richText", { name: "richText_html" }),
 		linkGroup({
 			appearances: ["default", "outline"],
 			overrides: { maxRows: 2 },

@@ -147,7 +147,6 @@ export interface Page {
           };
           [k: string]: unknown;
         } | null;
-        richText_html?: string | null;
         links?:
           | {
               link: {
@@ -222,7 +221,7 @@ export interface Media {
  * via the `definition` "PostsArchive".
  */
 export interface PostsArchive {
-  introContent?: {
+  content?: {
     root: {
       type: string;
       children: {
@@ -237,7 +236,7 @@ export interface PostsArchive {
     };
     [k: string]: unknown;
   } | null;
-  introContent_html?: string | null;
+  content_html?: string | null;
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: 'posts' | null;
   categories?: (string | Category)[] | null;
@@ -330,7 +329,7 @@ export interface User {
  * via the `definition` "ProductsArchive".
  */
 export interface ProductsArchive {
-  introContent?: {
+  content?: {
     root: {
       type: string;
       children: {
@@ -345,7 +344,7 @@ export interface ProductsArchive {
     };
     [k: string]: unknown;
   } | null;
-  introContent_html?: string | null;
+  content_html?: string | null;
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: 'products' | null;
   categories?: (string | Category)[] | null;

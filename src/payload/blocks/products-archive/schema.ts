@@ -11,7 +11,7 @@ export const ProductsArchive: Block = {
 	},
 	fields: [
 		{
-			name: "introContent",
+			name: "content",
 			label: "Introductory Content",
 			type: "richText",
 			editor: lexicalEditor({
@@ -21,7 +21,7 @@ export const ProductsArchive: Block = {
 			}),
 		},
 		/* converts the referenced lexical richText field into HTML */
-		lexicalHTML("introContent", { name: "introContent_html" }),
+		lexicalHTML("content", { name: "content_html" }),
 		{
 			name: "populateBy",
 			label: "Populate By",
