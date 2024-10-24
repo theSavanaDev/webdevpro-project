@@ -11,8 +11,8 @@ import { populatePublishedAt } from "@/payload/hooks/populate-published-at";
 import { revalidatePage } from "@/payload/collections/pages/hooks/revalidate-page";
 
 import { CallToAction } from "@/payload/blocks/call-to-action/schema";
-import { Content } from "@/payload/blocks/content/schema";
 import { ContentGrid } from "@/payload/blocks/content-grid/schema";
+import { ContentPad } from "@/payload/blocks/content-pad/schema";
 import { Hero } from "@/payload/blocks/hero/schema";
 import { Multimedia } from "@/payload/blocks/multimedia/schema";
 import { PostsArchive } from "@/payload/blocks/posts-archive/schema";
@@ -73,7 +73,7 @@ const Pages: CollectionConfig = {
 							name: "layout",
 							label: "Layout",
 							type: "blocks",
-							blocks: [Hero, Content, ContentGrid, Multimedia, PostsArchive, ProductsArchive, CallToAction],
+							blocks: [Hero, ContentPad, ContentGrid, Multimedia, PostsArchive, ProductsArchive, CallToAction],
 							required: true,
 						},
 					],

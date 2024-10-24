@@ -2,11 +2,11 @@ import { FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML }
 
 import { Block } from "payload";
 
-export const Content: Block = {
-	slug: "content",
+export const ContentPad: Block = {
+	slug: "contentPad",
 	labels: {
-		singular: "Content Block",
-		plural: "Content Blocks",
+		singular: "Content Pad Block",
+		plural: "Content Pad Blocks",
 	},
 	fields: [
 		{

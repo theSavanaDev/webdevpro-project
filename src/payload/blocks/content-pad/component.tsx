@@ -1,11 +1,11 @@
 import { Container } from "@/components/container";
 import { RenderHTML } from "@/components/render-html";
 
-type ContentBlockProps = {
+type ContentPadBlockProps = {
 	prose_html: string;
 };
 
-export const ContentBlock = ({ prose_html }: ContentBlockProps) => {
+export const ContentPadBlock = ({ prose_html }: ContentPadBlockProps) => {
 	return (
 		<Container className="my-16 px-3">
 			<RenderHTML html_content={prose_html} />

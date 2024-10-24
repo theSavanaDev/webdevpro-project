@@ -93,7 +93,7 @@ export interface Page {
         prose_html?: string | null;
         id?: string | null;
         blockName?: string | null;
-        blockType: 'content';
+        blockType: 'contentPad';
       }
     | {
         heading: string;

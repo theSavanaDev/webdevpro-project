@@ -2,8 +2,8 @@
 import { Fragment } from "react";
 
 import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
-import { ContentBlock } from "@/payload/blocks/content/component";
 import { ContentGridBlock } from "@/payload/blocks/content-grid/component";
+import { ContentPadBlock } from "@/payload/blocks/content-pad/component";
 import { HeroBlock } from "@/payload/blocks/hero/component";
 import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 import { PostsArchiveBlock } from "@/payload/blocks/posts-archive/component";
@@ -18,7 +18,7 @@ type RenderBlocksProps = {
 // mapping block slugs to their respective components
 const blockComponents = {
 	cta: CallToActionBlock,
-	content: ContentBlock,
+	contentPad: ContentPadBlock,
 	contentGrid: ContentGridBlock,
 	hero: HeroBlock,
 	multimedia: MultimediaBlock,
