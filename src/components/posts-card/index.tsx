@@ -10,7 +10,7 @@ import { Media } from "@/components/multimedia";
 
 import type { Post } from "@/payload-types";
 
-export const Card = (props: {
+export const PostsCard = (props: {
 	alignItems?: "center";
 	className?: string;
 	doc?: Post;

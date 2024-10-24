@@ -1,18 +1,18 @@
 import { getPayloadHMR } from "@payloadcms/next/utilities";
 import config from "@payload-config";
 
-import { CollectionArchive } from "@/components/collection-archive";
 import { Container } from "@/components/container";
+import { ProductsCollectionArchive } from "@/components/products-collection-archive";
 import { RichText } from "@/components/rich-text";
 
-import type { Post, Archive as ArchiveBlockProps } from "@/payload-types";
+import type { Product, ProductsArchive as ProductsArchiveBlockProps } from "@/payload-types";
 
-export const ArchiveBlock = async (props: ArchiveBlockProps & { id?: string }) => {
+export const ProductsArchiveBlock = async (props: ProductsArchiveBlockProps & { id?: string }) => {
 	const { id, categories, introContent, limit: limitFromProps, populateBy, selectedDocs } = props;
 
 	const limit = limitFromProps || 3;
 
-	let posts: Post[] = [];
+	let products: Product[] = [];
 
 	if (populateBy === "collection") {
 		const payload = await getPayloadHMR({ config: config });
@@ -22,8 +22,8 @@ export const ArchiveBlock = async (props: ArchiveBlockProps & { id?: string }) =
 			else return category;
 		});
 
-		const fetchedPosts = await payload.find({
-			collection: "posts",
+		const fetchedProducts = await payload.find({
+			collection: "products",
 			depth: 1,
 			limit,
 			...(flattenedCategories && flattenedCategories.length > 0
@@ -37,14 +37,14 @@ export const ArchiveBlock = async (props: ArchiveBlockProps & { id?: string }) =
 				: {}),
 		});
 
-		posts = fetchedPosts.docs;
+		products = fetchedProducts.docs;
 	} else {
 		if (selectedDocs?.length) {
-			const filteredSelectedPosts = selectedDocs.map((post) => {
-				if (typeof post.value === "object") return post.value;
-			}) as Post[];
+			const filteredSelectedProducts = selectedDocs.map((product) => {
+				if (typeof product.value === "object") return product.value;
+			}) as Product[];
 
-			posts = filteredSelectedPosts;
+			products = filteredSelectedProducts;
 		}
 	}
 
@@ -55,7 +55,7 @@ export const ArchiveBlock = async (props: ArchiveBlockProps & { id?: string }) =
 					<RichText className="ml-0 max-w-[48rem]" content={introContent} enableGutter={false} />
 				</div>
 			)}
-			<CollectionArchive posts={posts} />
+			<ProductsCollectionArchive products={products} />
 		</Container>
 	);
 };

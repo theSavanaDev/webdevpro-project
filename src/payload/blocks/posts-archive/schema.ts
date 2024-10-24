@@ -2,12 +2,12 @@ import { FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML }
 
 import { Block } from "payload";
 
-export const Archive: Block = {
-	slug: "archive",
-	interfaceName: "Archive",
+export const PostsArchive: Block = {
+	slug: "postsArchive",
+	interfaceName: "PostsArchive",
 	labels: {
-		singular: "Archive Block",
-		plural: "Archive Blocks",
+		singular: "Post Archive Block",
+		plural: "Posts Archive Block",
 	},
 	fields: [
 		{

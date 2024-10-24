@@ -1,12 +1,13 @@
 // @ts-nocheck
 import { Fragment } from "react";
 
-import { ArchiveBlock } from "@/payload/blocks/archive/component";
 import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
 import { ContentBlock } from "@/payload/blocks/content/component";
 import { ContentGridBlock } from "@/payload/blocks/content-grid/component";
 import { HeroBlock } from "@/payload/blocks/hero/component";
 import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
+import { PostsArchiveBlock } from "@/payload/blocks/posts-archive/component";
+import { ProductsArchiveBlock } from "@/payload/blocks/products-archive/component";
 
 import type { Page } from "@/payload-types";
 
@@ -16,12 +17,13 @@ type RenderBlocksProps = {
 
 // mapping block slugs to their respective components
 const blockComponents = {
-	archive: ArchiveBlock,
 	cta: CallToActionBlock,
 	content: ContentBlock,
 	contentGrid: ContentGridBlock,
 	hero: HeroBlock,
 	multimedia: MultimediaBlock,
+	postsArchive: PostsArchiveBlock,
+	productsArchive: ProductsArchiveBlock,
 };
 
 export const RenderBlocks = (props: RenderBlocksProps) => {

@@ -129,7 +129,8 @@ export interface Page {
         blockName?: string | null;
         blockType: 'multimedia';
       }
-    | Archive
+    | PostsArchive
+    | ProductsArchive
     | {
         richText?: {
           root: {
@@ -218,9 +219,9 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Archive".
+ * via the `definition` "PostsArchive".
  */
-export interface Archive {
+export interface PostsArchive {
   introContent?: {
     root: {
       type: string;
@@ -249,7 +250,7 @@ export interface Archive {
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'archive';
+  blockType: 'postsArchive';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -326,25 +327,69 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProductsArchive".
+ */
+export interface ProductsArchive {
+  introContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  introContent_html?: string | null;
+  populateBy?: ('collection' | 'selection') | null;
+  relationTo?: 'products' | null;
+  categories?: (string | Category)[] | null;
+  limit?: number | null;
+  selectedDocs?:
+    | {
+        relationTo: 'products';
+        value: string | Product;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'productsArchive';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".
  */
 export interface Product {
   id: string;
   title: string;
-  price: number;
+  images: string | Media;
   description: string;
+  perks?:
+    | {
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  products?: (string | Product)[] | null;
+  categories?: (string | Category)[] | null;
+  plans?: (string | Plan)[] | null;
+  meta?: {
+    title?: string | null;
+    image?: (string | null) | Media;
+    description?: string | null;
+  };
   slug: string;
   slugLock?: boolean | null;
+  price: number;
   featured?: boolean | null;
-  perks: {
-    description?: string | null;
-    id?: string | null;
-  }[];
-  plan?: (string | Plan)[] | null;
-  categories?: (string | Category)[] | null;
-  images: string | Media;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

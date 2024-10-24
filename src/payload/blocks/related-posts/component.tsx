@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { Card } from "@/components/card";
+import { PostsCard } from "@/components/posts-card";
 import { RichText } from "@/components/rich-text";
 
 import type { Post } from "@/payload-types";
@@ -22,7 +22,7 @@ export const RelatedPosts = (props: RelatedPostsProps) => {
 				{docs?.map((doc, index) => {
 					if (typeof doc === "string") return null;
 
-					return <Card key={index} doc={doc} relationTo="posts" showCategories />;
+					return <PostsCard key={index} doc={doc} relationTo="posts" showCategories />;
 				})}
 			</div>
 		</div>

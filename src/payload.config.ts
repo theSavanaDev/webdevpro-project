@@ -110,7 +110,7 @@ export default buildConfig({
 						];
 					},
 				}),
-				HeadingFeature({ enabledHeadingSizes: ["h3", "h4"] }),
+				HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
 				HorizontalRuleFeature(),
 				OrderedListFeature(),
 				UnderlineFeature(),

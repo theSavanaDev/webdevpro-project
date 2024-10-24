@@ -1,24 +1,24 @@
-import { Card } from "@/components/card";
+import { ProductsCard } from "@/components/products-card";
 import { Container } from "@/components/container";
 
-import type { Post } from "@/payload-types";
+import type { Product } from "@/payload-types";
 
 export type Props = {
-	posts: Post[];
+	products: Product[];
 };
 
-export const CollectionArchive = (props: Props) => {
-	const { posts } = props;
+export const ProductsCollectionArchive = (props: Props) => {
+	const { products } = props;
 
 	return (
 		<Container className="my-16">
 			<div>
 				<div className="grid grid-cols-4 gap-x-4 gap-y-4 sm:grid-cols-8 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-8 xl:gap-x-8">
-					{posts?.map((result, index) => {
+					{products?.map((result, index) => {
 						if (typeof result === "object" && result !== null) {
 							return (
 								<div className="col-span-4" key={index}>
-									<Card className="h-full" doc={result} relationTo="posts" showCategories />
+									<ProductsCard className="h-full" doc={result} relationTo="products" showCategories />
 								</div>
 							);
 						}
