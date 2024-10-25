@@ -6,6 +6,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import useClickableCard from "@/lib/use-clickable-card";
 
+import { Badge } from "@/components/ui/badge";
 import { Media } from "@/components/multimedia";
 
 import type { Product } from "@/payload-types";
@@ -21,7 +22,7 @@ export const ProductsCard = (props: {
 	const { card, link } = useClickableCard({});
 	const { className, doc, relationTo, showCategories, title: titleFromProps } = props;
 
-	const { slug, categories, meta, title } = doc || {};
+	const { slug, categories, meta, title, price } = doc || {};
 	const { description, image: metaImage } = meta || {};
 
 	const hasCategories = categories && Array.isArray(categories) && categories.length > 0;
@@ -34,6 +35,7 @@ export const ProductsCard = (props: {
 			<div className="relative w-full">
 				{!metaImage && <div className="">No image</div>}
 				{metaImage && typeof metaImage !== "string" && <Media resource={metaImage} size="360px" />}
+				<Badge className="absolute right-4 top-4">${price?.toLocaleString()}</Badge>
 			</div>
 
 			<div className="p-4">

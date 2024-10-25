@@ -12,6 +12,8 @@ import { RichText } from "@/components/rich-text";
 
 import { RelatedProducts } from "@/payload/blocks/related-products/component";
 
+import { ProductHero } from "@/payload/blocks/hero/product-hero";
+
 import type { Metadata } from "next";
 import type { Product } from "@/payload-types";
 
@@ -45,7 +47,7 @@ export default async function Product({ params: paramsPromise }: Args) {
 
 	return (
 		<article className="pb-16 pt-5">
-			<Container>Product Infomation Goes Here</Container>
+			<ProductHero />
 		</article>
 	);
 }
