@@ -13,7 +13,7 @@ import { revalidatePage } from "@/payload/collections/pages/hooks/revalidate-pag
 import { CallToAction } from "@/payload/blocks/call-to-action/schema";
 import { ContentGrid } from "@/payload/blocks/content-grid/schema";
 import { ContentPad } from "@/payload/blocks/content-pad/schema";
-import { Hero } from "@/payload/blocks/hero/schema";
+import { Hero } from "@/payload/blocks/heros/schema";
 import { Multimedia } from "@/payload/blocks/multimedia/schema";
 import { PostsArchive } from "@/payload/blocks/posts-archive/schema";
 import { ProductsArchive } from "@/payload/blocks/products-archive/schema";

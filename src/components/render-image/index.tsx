@@ -13,8 +13,8 @@ export const RenderImage = ({ imageSrc, imageAlt }: RenderImageProps) => {
 			fill
 			quality={89}
 			priority
-			sizes="100vw"
-			className="absolute mx-auto h-auto w-full rounded object-cover object-center"
+			sizes="(max-width: 640px) 100vw, (max-width: 768px) 640px, (max-width: 1024px) 768px, (max-width: 1280px) 1024px, 1280px"
+			className="absolute mx-auto h-auto w-full overflow-hidden rounded-lg object-cover object-center"
 		/>
 	);
 };

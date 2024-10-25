@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 					<main>{children}</main>
 
-					<footer className="mt-auto text-center">
+					<footer className="mt-auto">
 						<FooterBlock />
 					</footer>
 				</ThemeProvider>

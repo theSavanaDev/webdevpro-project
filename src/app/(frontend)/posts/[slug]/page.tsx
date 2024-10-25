@@ -12,7 +12,7 @@ import { RichText } from "@/components/rich-text";
 
 import { RelatedPosts } from "@/payload/blocks/related-posts/component";
 
-import { PostHero } from "@/payload/blocks/hero/post-hero";
+import { PostHero } from "@/payload/blocks/heros/post-hero";
 
 import type { Metadata } from "next";
 import type { Post } from "@/payload-types";

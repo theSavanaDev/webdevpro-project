@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
 import { ContentGridBlock } from "@/payload/blocks/content-grid/component";
 import { ContentPadBlock } from "@/payload/blocks/content-pad/component";
-import { HeroBlock } from "@/payload/blocks/hero/component";
+import { HeroBlock } from "@/payload/blocks/heros/component";
 import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 import { PostsArchiveBlock } from "@/payload/blocks/posts-archive/component";
 import { ProductsArchiveBlock } from "@/payload/blocks/products-archive/component";

@@ -11,7 +11,7 @@ import { Container } from "@/components/container";
 
 import { RelatedProducts } from "@/payload/blocks/related-products/component";
 
-import { ProductHero } from "@/payload/blocks/hero/product-hero";
+import { ProductHero } from "@/payload/blocks/heros/product-hero";
 
 import type { Metadata } from "next";
 import type { Product } from "@/payload-types";

@@ -15,7 +15,7 @@ const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBL
 export const HeroBlock = ({ coverImage, message, title, type }: HeroBlockProps) => {
 	return (
 		<Container className={cn("w-full", { "h-[50rem]": type === "homepage", "h-[30rem]": type === "subpage" })}>
-			<div className="relative h-full w-full rounded-xl">
+			<div className="relative h-full w-full">
 				<RenderImage imageAlt="Hero image" imageSrc={`${serverURL}${coverImage.url}`} />
 
 				<div className="absolute left-0 top-0 h-full w-full rounded-lg bg-gray-900/40"></div>

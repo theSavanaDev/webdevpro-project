@@ -13,14 +13,14 @@ export const PostHero = ({ post }: { post: Post }) => {
 
 	return (
 		<Container className="h-[30rem] w-full">
-			<div className="relative h-full w-full rounded-xl">
+			<div className="relative h-full w-full">
 				<RenderImage imageAlt="Hero image" imageSrc={`${meta?.image && typeof meta?.image === "object" ? `${meta.image.url}` : ""}`} />
 
 				<div className="absolute left-0 top-0 h-full w-full rounded-lg bg-gray-900/40"></div>
 
 				<div className="absolute flex h-full w-full items-center justify-center">
 					<div className="text-center">
-						<div className="mb-5 uppercase text-white">
+						<div className="mb-5 space-x-1 uppercase text-white">
 							{/* categories section */}
 							{categories?.map((category, index) => {
 								if (typeof category === "object" && category !== null) {
