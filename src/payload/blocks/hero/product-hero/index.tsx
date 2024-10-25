@@ -14,7 +14,7 @@ export const ProductHero = ({ product }: { product: Product }) => {
 		<Container className="grid gap-8 md:grid-cols-2">
 			{/* product image */}
 			<div className="flex items-center justify-center rounded-lg">
-				<div className="relative h-[400px] w-[400px] rounded-xl lg:w-[600px]">
+				<div className="relative h-[300px] w-full max-w-[600px] rounded-lg sm:h-[400px] md:h-[500px] lg:h-[600px]">
 					<RenderImage imageAlt="Hero image" imageSrc={`${meta?.image && typeof meta?.image === "object" ? `${meta.image.url}` : ""}`} />
 				</div>
 			</div>
