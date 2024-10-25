@@ -13,8 +13,8 @@ export const ProductHero = ({ product }: { product: Product }) => {
 	return (
 		<Container className="grid gap-8 md:grid-cols-2">
 			{/* product image */}
-			<div>
-				<div className="relative h-[450px] w-[600px] rounded-xl">
+			<div className="flex items-center justify-center rounded-lg">
+				<div className="relative h-[400px] w-[400px] rounded-xl lg:w-[600px]">
 					<RenderImage imageAlt="Hero image" imageSrc={`${meta?.image && typeof meta?.image === "object" ? `${meta.image.url}` : ""}`} />
 				</div>
 			</div>
@@ -54,7 +54,7 @@ export const ProductHero = ({ product }: { product: Product }) => {
 					</div>
 				</div>
 
-				<Button className="mt-8 w-full">Add to Cart</Button>
+				<Button className="w-full">Add to Cart</Button>
 			</div>
 		</Container>
 	);
