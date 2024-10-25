@@ -1,5 +1,4 @@
-import clsx from "clsx";
-
+import { Container } from "@/components/container";
 import { ProductsCard } from "@/components/products-card";
 import { RichText } from "@/components/rich-text";
 
@@ -12,10 +11,10 @@ export type RelatedProductsProps = {
 };
 
 export const RelatedProducts = (props: RelatedProductsProps) => {
-	const { className, docs, introContent } = props;
+	const { docs, introContent } = props;
 
 	return (
-		<div className={clsx("container", className)}>
+		<Container className="py-16">
 			{introContent && <RichText content={introContent} enableGutter={false} />}
 
 			<div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
@@ -25,6 +24,6 @@ export const RelatedProducts = (props: RelatedProductsProps) => {
 					return <ProductsCard key={index} doc={doc} relationTo="products" showCategories />;
 				})}
 			</div>
-		</div>
+		</Container>
 	);
 };

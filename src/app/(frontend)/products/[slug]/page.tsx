@@ -8,7 +8,6 @@ import config from "@payload-config";
 import { generateMeta } from "@/lib/generate-meta";
 
 import { Container } from "@/components/container";
-import { RichText } from "@/components/rich-text";
 
 import { RelatedProducts } from "@/payload/blocks/related-products/component";
 
@@ -47,7 +46,13 @@ export default async function Product({ params: paramsPromise }: Args) {
 
 	return (
 		<article className="pb-16 pt-5">
-			<ProductHero />
+			<ProductHero product={product} />
+
+			<Container className="flex flex-col items-center gap-4 pt-8">
+				{product.products && product.products.length > 0 && (
+					<RelatedProducts className="mt-12" docs={product.products.filter((post) => typeof post === "object")} />
+				)}
+			</Container>
 		</article>
 	);
 }
