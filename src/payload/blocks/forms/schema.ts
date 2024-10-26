@@ -6,8 +6,8 @@ export const Forms: Block = {
 	slug: "forms",
 	interfaceName: "Forms",
 	labels: {
-		singular: "Form Block",
-		plural: "Forms Block",
+		singular: "Forms Block",
+		plural: "Forms Blocks",
 	},
 	fields: [
 		{

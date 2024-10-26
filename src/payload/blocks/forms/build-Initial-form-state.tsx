@@ -1,7 +1,7 @@
 import type { FormFieldBlock } from "@payloadcms/plugin-form-builder/types";
 
 export const buildInitialFormState = (fields: FormFieldBlock[]) => {
-	return fields?.reduce((initialSchema: FormFieldBlock, field: FormFieldBlock) => {
+	return fields?.reduce((initialSchema, field) => {
 		if (field.blockType === "checkbox") {
 			return { ...initialSchema, [field.name]: field.defaultValue };
 		}
@@ -26,6 +26,6 @@ export const buildInitialFormState = (fields: FormFieldBlock[]) => {
 			return { ...initialSchema, [field.name]: "" };
 		}
 
-		return initialSchema;
-	}, {} as FormFieldBlock);
+		return { ...initialSchema };
+	}, {});
 };
