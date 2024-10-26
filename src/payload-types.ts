@@ -215,7 +215,6 @@ export interface Media {
     };
     [k: string]: unknown;
   } | null;
-  caption_html?: string | null;
   _key?: string | null;
   updatedAt: string;
   createdAt: string;

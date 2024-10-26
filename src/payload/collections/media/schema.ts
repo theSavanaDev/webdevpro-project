@@ -1,4 +1,4 @@
-import { FixedToolbarFeature, HTMLConverterFeature, lexicalEditor, lexicalHTML } from "@payloadcms/richtext-lexical";
+import { FixedToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 
 import { anyone } from "@/payload/access/anyone";
 import { authenticated } from "@/payload/access/authenticated";
@@ -31,12 +31,10 @@ const Media: CollectionConfig = {
 			type: "richText",
 			editor: lexicalEditor({
 				features: ({ rootFeatures }) => {
-					return [...rootFeatures, FixedToolbarFeature(), HTMLConverterFeature({})];
+					return [...rootFeatures, FixedToolbarFeature()];
 				},
 			}),
 		},
-		/* converts the referenced lexical richText field into HTML */
-		lexicalHTML("caption", { name: "caption_html" }),
 	],
 	upload: {
 		mimeTypes: ["image/*"],

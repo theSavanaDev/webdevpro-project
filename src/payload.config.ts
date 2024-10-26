@@ -137,7 +137,17 @@ export default buildConfig({
 								...field,
 								editor: lexicalEditor({
 									features: ({ rootFeatures }) => {
-										return [...rootFeatures, FixedToolbarFeature(), HeadingFeature({ enabledHeadingSizes: ["h2", "h3", "h4"] })];
+										return [
+											...rootFeatures,
+											BoldFeature(),
+											ItalicFeature(),
+											FixedToolbarFeature(),
+											HeadingFeature({ enabledHeadingSizes: ["h2", "h3", "h4"] }),
+											HorizontalRuleFeature(),
+											OrderedListFeature(),
+											UnderlineFeature(),
+											UnorderedListFeature(),
+										];
 									},
 								}),
 							};
