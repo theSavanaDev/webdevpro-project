@@ -6,8 +6,8 @@ import type { CollectionConfig } from "payload";
 const Faqs: CollectionConfig = {
 	slug: "faqs",
 	labels: {
-		singular: "Frequently Asked Question",
-		plural: "Frequently Asked Questions",
+		singular: "FAQ",
+		plural: "FAQs",
 	},
 	admin: {
 		defaultColumns: ["question", "answer", "createdAt", "updatedAt"],

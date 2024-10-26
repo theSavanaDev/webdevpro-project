@@ -179,6 +179,7 @@ export interface Page {
         blockName?: string | null;
         blockType: 'cta';
       }
+    | Forms
   )[];
   meta?: {
     title?: string | null;
@@ -433,41 +434,29 @@ export interface Plan {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "faqs".
+ * via the `definition` "Forms".
  */
-export interface Faq {
-  id: string;
-  question: string;
-  answer: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "logos".
- */
-export interface Logo {
-  id: string;
-  company: string;
-  logoImage: string | Media;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "testimonials".
- */
-export interface Testimonial {
-  id: string;
-  content: string;
-  customer?: {
-    firstName?: string | null;
-    lastName?: string | null;
-    job?: string | null;
-    image?: (string | null) | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
+export interface Forms {
+  form: string | Form;
+  enableContent?: boolean | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'forms';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -630,6 +619,44 @@ export interface Form {
         id?: string | null;
       }[]
     | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqs".
+ */
+export interface Faq {
+  id: string;
+  question: string;
+  answer: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "logos".
+ */
+export interface Logo {
+  id: string;
+  company: string;
+  logoImage: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: string;
+  content: string;
+  customer?: {
+    firstName?: string | null;
+    lastName?: string | null;
+    job?: string | null;
+    image?: (string | null) | Media;
+  };
   updatedAt: string;
   createdAt: string;
 }

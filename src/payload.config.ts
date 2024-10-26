@@ -110,7 +110,7 @@ export default buildConfig({
 						];
 					},
 				}),
-				HeadingFeature({ enabledHeadingSizes: ["h1", "h2", "h3", "h4"] }),
+				HeadingFeature({ enabledHeadingSizes: ["h2", "h3", "h4"] }),
 				HorizontalRuleFeature(),
 				OrderedListFeature(),
 				UnderlineFeature(),
@@ -119,8 +119,8 @@ export default buildConfig({
 		},
 	}),
 	email: resendAdapter({
-		defaultFromAddress: "mta@s3.co.ke",
-		defaultFromName: "MTA @ S3",
+		defaultFromAddress: "mailer@s3interdev.com",
+		defaultFromName: "Mailer @ S3",
 		apiKey: resendAPIKey,
 	}),
 	globals: [Header, Footer],
