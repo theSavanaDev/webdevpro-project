@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
 import { ContentGridBlock } from "@/payload/blocks/content-grid/component";
 import { ContentPadBlock } from "@/payload/blocks/content-pad/component";
+import { FormBlock } from "@/payload/blocks/forms/component";
 import { HeroBlock } from "@/payload/blocks/heros/component";
 import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 import { PostsArchiveBlock } from "@/payload/blocks/posts-archive/component";
@@ -20,6 +21,7 @@ const blockComponents = {
 	cta: CallToActionBlock,
 	contentPad: ContentPadBlock,
 	contentGrid: ContentGridBlock,
+	forms: FormBlock,
 	hero: HeroBlock,
 	multimedia: MultimediaBlock,
 	postsArchive: PostsArchiveBlock,
