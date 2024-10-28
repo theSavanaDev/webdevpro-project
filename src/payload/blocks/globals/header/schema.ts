@@ -50,7 +50,7 @@ const Header: GlobalConfig = {
 			required: true,
 			fields: [link({ appearances: false })],
 			minRows: 1,
-			maxRows: 3,
+			maxRows: 5,
 		},
 	],
 	hooks: {

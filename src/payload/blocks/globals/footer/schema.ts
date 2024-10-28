@@ -72,7 +72,7 @@ const Footer: GlobalConfig = {
 				}),
 			],
 			minRows: 1,
-			maxRows: 3,
+			maxRows: 5,
 		},
 		{
 			name: "legal",

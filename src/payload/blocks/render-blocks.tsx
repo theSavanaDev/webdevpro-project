@@ -8,6 +8,7 @@ import { FormBlock } from "@/payload/blocks/forms/component";
 import { HeroBlock } from "@/payload/blocks/heros/component";
 import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 import { PostsArchiveBlock } from "@/payload/blocks/posts-archive/component";
+import { PricingBlock } from "@/payload/blocks//pricing/component";
 import { ProductsArchiveBlock } from "@/payload/blocks/products-archive/component";
 
 import type { Page } from "@/payload-types";
@@ -25,6 +26,7 @@ const blockComponents = {
 	hero: HeroBlock,
 	multimedia: MultimediaBlock,
 	postsArchive: PostsArchiveBlock,
+	pricing: PricingBlock,
 	productsArchive: ProductsArchiveBlock,
 };
 

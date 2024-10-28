@@ -180,6 +180,7 @@ export interface Page {
         blockType: 'cta';
       }
     | Forms
+    | Pricing
   )[];
   meta?: {
     title?: string | null;
@@ -407,8 +408,6 @@ export interface Product {
 export interface Plan {
   id: string;
   title: string;
-  price?: number | null;
-  featured?: boolean | null;
   perks: {
     description?: string | null;
     id?: string | null;
@@ -419,17 +418,13 @@ export interface Plan {
         id?: string | null;
       }[]
     | null;
-  cta?: {
-    addCTA?: boolean | null;
-    groupCTA?: {
-      url?: string | null;
-      label?: string | null;
-      target?: ('_blank' | '_self' | '_parent' | '_top') | null;
-      variant?: ('default' | 'outline') | null;
-    };
-  };
+  slug: string;
+  slugLock?: boolean | null;
+  price?: number | null;
+  featured?: boolean | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -620,6 +615,15 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Pricing".
+ */
+export interface Pricing {
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pricing';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
