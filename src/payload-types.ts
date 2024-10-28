@@ -180,7 +180,7 @@ export interface Page {
         blockType: 'cta';
       }
     | Forms
-    | Pricing
+    | PricingPlans
   )[];
   meta?: {
     title?: string | null;
@@ -618,12 +618,27 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Pricing".
+ * via the `definition` "PricingPlans".
  */
-export interface Pricing {
+export interface PricingPlans {
+  caption?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'pricing';
+  blockType: 'pricingPlans';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -8,8 +8,8 @@ import type { CollectionConfig } from "payload";
 const Plans: CollectionConfig = {
 	slug: "plans",
 	labels: {
-		singular: "Plan",
-		plural: "Plans",
+		singular: "Pricing Plan",
+		plural: "Pricing Plans",
 	},
 	admin: {
 		defaultColumns: ["title", "price", "createdAt", "updatedAt"],
