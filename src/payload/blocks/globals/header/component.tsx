@@ -1,18 +1,35 @@
+import { unstable_cache } from "next/cache";
 import Link from "next/link";
 
-import { getCachedGlobal } from "@/lib/get-global";
+import { getPayloadHMR } from "@payloadcms/next/utilities";
+import config from "@payload-config";
 
 import { Container } from "@/components/container";
 import { CMSLink } from "@/components/cms-link";
 import { ModeToggle } from "@/components/mode-toggle";
 import { RenderImage } from "@/components/render-image";
 
-import type { Header } from "@/payload-types";
-
 const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
+export type PricingPlansBlockProps = {
+	caption: object;
+};
+
+const data = await getPayloadHMR({ config: config });
+
+const getHeader = unstable_cache(
+	async () => {
+		return await data.findGlobal({
+			slug: "header",
+		});
+	},
+	["header"],
+	{ revalidate: 60, tags: ["header"] },
+);
+
 export const HeaderBlock = async () => {
-	const header = (await getCachedGlobal("header", 1)()) as Header;
+	const header = await getHeader();
+
 	const logoURL = header.common.logo && typeof header.common.logo === "object" ? header.common.logo.url : null;
 	const logoALT = header.common.logo && typeof header.common.logo === "object" ? header.common.logo.alt : null;
 

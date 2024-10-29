@@ -1,18 +1,31 @@
+import { unstable_cache } from "next/cache";
 import Link from "next/link";
 
-import { getCachedGlobal } from "@/lib/get-global";
+import { getPayloadHMR } from "@payloadcms/next/utilities";
+import config from "@payload-config";
 
 import { Separator } from "@/components/ui/separator";
 import { CMSLink } from "@/components/cms-link";
 import { Container } from "@/components/container";
 import { RenderImage } from "@/components/render-image";
 
-import type { Footer } from "@/payload-types";
-
 const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
+const data = await getPayloadHMR({ config: config });
+
+const getFooter = unstable_cache(
+	async () => {
+		return await data.findGlobal({
+			slug: "footer",
+		});
+	},
+	["footer"],
+	{ revalidate: 60, tags: ["footer"] },
+);
+
 export const FooterBlock = async () => {
-	const footer = (await getCachedGlobal("footer", 1)()) as Footer;
+	const footer = await getFooter();
+
 	const logoURL = footer.common.logo && typeof footer.common.logo === "object" ? footer.common.logo.url : null;
 	const logoALT = footer.common.logo && typeof footer.common.logo === "object" ? footer.common.logo.alt : null;
 
