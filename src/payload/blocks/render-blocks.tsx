@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Fragment } from "react";
 
 import { CallToActionBlock } from "@/payload/blocks/call-to-action/component";
@@ -47,7 +46,7 @@ export const RenderBlocks = (props: RenderBlocksProps) => {
 						if (Block) {
 							return (
 								<div key={index}>
-									<Block {...block} />
+									<Block {...(block as any)} />
 								</div>
 							);
 						}
