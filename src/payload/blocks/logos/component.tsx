@@ -21,7 +21,7 @@ const getLogos = unstable_cache(
 		});
 	},
 	["logos"],
-	{ tags: ["logos"] },
+	{ revalidate: 60, tags: ["logos"] },
 );
 
 export const LogosBlock = async ({ caption }: LogosBlockProps) => {

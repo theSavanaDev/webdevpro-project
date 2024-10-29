@@ -21,7 +21,7 @@ const getFaqs = unstable_cache(
 		});
 	},
 	["faqs"],
-	{ tags: ["faqs"] },
+	{ revalidate: 60, tags: ["faqs"] },
 );
 
 export const FaqsBlock = async ({ caption }: FaqsBlockProps) => {
