@@ -181,6 +181,7 @@ export interface Page {
       }
     | Forms
     | PricingPlans
+    | FAQS
   )[];
   meta?: {
     title?: string | null;
@@ -639,6 +640,30 @@ export interface PricingPlans {
   id?: string | null;
   blockName?: string | null;
   blockType: 'pricingPlans';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQS".
+ */
+export interface FAQS {
+  caption?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faqs';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

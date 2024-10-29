@@ -13,6 +13,7 @@ import { revalidatePage } from "@/payload/collections/pages/hooks/revalidate-pag
 import { CallToAction } from "@/payload/blocks/call-to-action/schema";
 import { ContentGrid } from "@/payload/blocks/content-grid/schema";
 import { ContentPad } from "@/payload/blocks/content-pad/schema";
+import { Faqs } from "@/payload/blocks/faqs/schema";
 import { Forms } from "@/payload/blocks/forms/schema";
 import { Hero } from "@/payload/blocks/heros/schema";
 import { Multimedia } from "@/payload/blocks/multimedia/schema";
@@ -75,7 +76,7 @@ const Pages: CollectionConfig = {
 							name: "layout",
 							label: "Layout",
 							type: "blocks",
-							blocks: [Hero, ContentPad, ContentGrid, Multimedia, PostsArchive, ProductsArchive, CallToAction, Forms, PricingPlans],
+							blocks: [Hero, ContentPad, ContentGrid, Multimedia, PostsArchive, ProductsArchive, CallToAction, Forms, PricingPlans, Faqs],
 							required: true,
 						},
 					],

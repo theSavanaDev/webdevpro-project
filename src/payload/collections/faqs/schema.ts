@@ -25,12 +25,18 @@ const Faqs: CollectionConfig = {
 			label: "Question",
 			type: "text",
 			required: true,
+			admin: {
+				width: "50%",
+			},
 		},
 		{
 			name: "answer",
 			label: "Answer",
 			type: "textarea",
 			required: true,
+			admin: {
+				width: "50%",
+			},
 		},
 	],
 };

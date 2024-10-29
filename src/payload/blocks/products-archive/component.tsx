@@ -52,7 +52,7 @@ export const ProductsArchiveBlock = async (props: ProductsArchiveBlockProps & { 
 		<Container className="my-16" id={`block-${id}`}>
 			{content && (
 				<div className="mb-16">
-					<RichText className="ml-0 max-w-[48rem]" content={content} enableGutter={false} />
+					<RichText className="ml-0" content={content} enableGutter={false} />
 				</div>
 			)}
 			<ProductsCollectionArchive products={products} />

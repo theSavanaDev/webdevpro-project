@@ -11,8 +11,8 @@ type ContentGridBlockProps = {
 
 export const ContentGridBlock = ({ content, introductoryContent }: ContentGridBlockProps) => {
 	return (
-		<Container className="my-16">
-			<RichText className="my-12 ml-0 max-w-[48rem]" content={introductoryContent} enableGutter={false} />
+		<Container className="my-16 space-y-12">
+			<RichText className="ml-0" content={introductoryContent} enableGutter={false} />
 
 			<div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
 				{content.map((element) => (

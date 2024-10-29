@@ -17,6 +17,7 @@ const getPricingPlans = unstable_cache(
 	async () => {
 		return await data.find({
 			collection: "plans",
+			sort: "order:asc",
 		});
 	},
 	["plans"],
@@ -28,7 +29,7 @@ export const PricingPlansBlock = async ({ caption }: PricingPlansBlockProps) => 
 
 	return (
 		<Container className="my-16 space-y-8">
-			<div className="flex max-w-[48rem] items-center">{caption && <RichText className="mb-0" content={caption} enableGutter={false} />}</div>
+			<div className="mb-16">{caption && <RichText className="mb-0" content={caption} enableGutter={false} />}</div>
 
 			<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 				{allPlans.docs.map((plan) => (

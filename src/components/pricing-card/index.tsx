@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type PricingCardProps = {
-	key: string;
 	title: string;
 	price: number;
 	perks: {
@@ -20,7 +19,7 @@ type PricingCardProps = {
 
 export const PricingCard = ({ title, price, perks, additionalPerks, featured }: PricingCardProps) => {
 	return (
-		<Card className={`border-gray-700 bg-gray-800 ${featured ? "ring-2 ring-blue-500" : ""}`}>
+		<Card className={`border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 ${featured ? "ring-2 ring-blue-500" : ""}`}>
 			<CardHeader>
 				<CardTitle className="text-xl font-bold">{title}</CardTitle>
 				<div className="mt-2 text-3xl font-semibold">
