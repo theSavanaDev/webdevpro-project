@@ -24,7 +24,7 @@ const getHeader = unstable_cache(
 		});
 	},
 	["header"],
-	{ revalidate: 60, tags: ["header"] },
+	{ tags: ["header"] },
 );
 
 export const HeaderBlock = async () => {

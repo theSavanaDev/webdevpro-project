@@ -20,7 +20,7 @@ const getPricingPlans = unstable_cache(
 		});
 	},
 	["plans"],
-	{ revalidate: 60, tags: ["plans"] },
+	{ tags: ["plans"] },
 );
 
 export const PricingPlansBlock = async ({ caption }: PricingPlansBlockProps) => {

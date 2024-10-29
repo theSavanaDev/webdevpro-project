@@ -20,7 +20,7 @@ const getFooter = unstable_cache(
 		});
 	},
 	["footer"],
-	{ revalidate: 60, tags: ["footer"] },
+	{ tags: ["footer"] },
 );
 
 export const FooterBlock = async () => {
