@@ -6,6 +6,7 @@ import { ContentPadBlock } from "@/payload/blocks/content-pad/component";
 import { FaqsBlock } from "@/payload/blocks/faqs/component";
 import { FormBlock } from "@/payload/blocks/forms/component";
 import { HeroBlock } from "@/payload/blocks/heros/component";
+import { LogosBlock } from "@/payload/blocks/logos/component";
 import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 import { PostsArchiveBlock } from "@/payload/blocks/posts-archive/component";
 import { PricingPlansBlock } from "@/payload/blocks/pricing-plans/component";
@@ -25,6 +26,7 @@ const blockComponents = {
 	faqs: FaqsBlock,
 	forms: FormBlock,
 	hero: HeroBlock,
+	logos: LogosBlock,
 	multimedia: MultimediaBlock,
 	postsArchive: PostsArchiveBlock,
 	pricingPlans: PricingPlansBlock,

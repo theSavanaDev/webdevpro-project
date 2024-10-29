@@ -25,6 +25,9 @@ const Logos: CollectionConfig = {
 			label: "Company",
 			type: "text",
 			required: true,
+			admin: {
+				width: "50%",
+			},
 		},
 		{
 			name: "logoImage",
@@ -32,6 +35,9 @@ const Logos: CollectionConfig = {
 			type: "upload",
 			relationTo: "media",
 			required: true,
+			admin: {
+				width: "50%",
+			},
 		},
 	],
 };

@@ -16,6 +16,7 @@ import { ContentPad } from "@/payload/blocks/content-pad/schema";
 import { Faqs } from "@/payload/blocks/faqs/schema";
 import { Forms } from "@/payload/blocks/forms/schema";
 import { Hero } from "@/payload/blocks/heros/schema";
+import { Logos } from "@/payload/blocks/logos/schema";
 import { Multimedia } from "@/payload/blocks/multimedia/schema";
 import { PostsArchive } from "@/payload/blocks/posts-archive/schema";
 import { PricingPlans } from "@/payload/blocks/pricing-plans/schema";
@@ -76,7 +77,19 @@ const Pages: CollectionConfig = {
 							name: "layout",
 							label: "Layout",
 							type: "blocks",
-							blocks: [Hero, ContentPad, ContentGrid, Multimedia, PostsArchive, ProductsArchive, CallToAction, Forms, PricingPlans, Faqs],
+							blocks: [
+								Hero,
+								ContentPad,
+								ContentGrid,
+								Multimedia,
+								PostsArchive,
+								ProductsArchive,
+								CallToAction,
+								Forms,
+								PricingPlans,
+								Faqs,
+								Logos,
+							],
 							required: true,
 						},
 					],
