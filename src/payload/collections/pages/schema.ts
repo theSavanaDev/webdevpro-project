@@ -21,6 +21,7 @@ import { Multimedia } from "@/payload/blocks/multimedia/schema";
 import { PostsArchive } from "@/payload/blocks/posts-archive/schema";
 import { PricingPlans } from "@/payload/blocks/pricing-plans/schema";
 import { ProductsArchive } from "@/payload/blocks/products-archive/schema";
+import { Testimonials } from "@/payload/blocks/testimonials/schema";
 
 import type { CollectionConfig } from "payload";
 
@@ -89,6 +90,7 @@ const Pages: CollectionConfig = {
 								PricingPlans,
 								Faqs,
 								Logos,
+								Testimonials,
 							],
 							required: true,
 						},
