@@ -11,7 +11,7 @@ import { MultimediaBlock } from "@/payload/blocks/multimedia/component";
 import { PostsArchiveBlock } from "@/payload/blocks/posts-archive/component";
 import { PricingPlansBlock } from "@/payload/blocks/pricing-plans/component";
 import { ProductsArchiveBlock } from "@/payload/blocks/products-archive/component";
-import { TestimonialsBlock } from "@/payload/blocks/testimonials/components";
+import { TestimonialsBlock } from "@/payload/blocks/testimonials/component";
 
 import type { Page } from "@/payload-types";
 
