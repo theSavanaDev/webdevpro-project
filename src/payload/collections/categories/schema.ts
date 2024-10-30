@@ -25,6 +25,9 @@ const Categories: CollectionConfig = {
 			label: "Category Title",
 			type: "text",
 			required: true,
+			admin: {
+				width: "50%",
+			},
 		},
 	],
 };

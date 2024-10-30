@@ -718,13 +718,12 @@ export interface Logo {
  */
 export interface Testimonial {
   id: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  job?: string | null;
+  image?: (string | null) | Media;
   content: string;
-  customer?: {
-    firstName?: string | null;
-    lastName?: string | null;
-    job?: string | null;
-    image?: (string | null) | Media;
-  };
+  fullName?: string | null;
   updatedAt: string;
   createdAt: string;
 }
