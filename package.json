@@ -1,5 +1,5 @@
 {
-	"name": "webdevpro-website-project",
+	"name": "webdevpro-project",
 	"version": "0.1.2",
 	"description": "Sample website for learning Payload CMS version 3.0",
 	"license": "MIT",
@@ -7,11 +7,14 @@
 	"scripts": {
 		"build": "cross-env NODE_OPTIONS=--no-deprecation next build",
 		"dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-		"devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+		"dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
 		"generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
 		"generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+		"ii": "cross-env NODE_OPTIONS=--no-deprecation pnpm --ignore-workspace install",
 		"lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+		"lint:fix": "cross-env NODE_OPTIONS=--no-deprecation next lint --fix",
 		"payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+		"reinstall": "cross-env NODE_OPTIONS=--no-deprecation rm -rf node_modules && rm pnpm-lock.yaml && pnpm --ignore-workspace install",
 		"start": "cross-env NODE_OPTIONS=--no-deprecation next start"
 	},
 	"dependencies": {
@@ -61,6 +64,7 @@
 		"@types/node": "^22.7.8",
 		"@types/react": "npm:types-react@19.0.0-rc.0",
 		"@types/react-dom": "npm:types-react-dom@19.0.0-rc.0",
+		"autoprefixer": "^10.4.19",
 		"eslint": "^8.57.1",
 		"eslint-config-next": "15.0.0-canary.173",
 		"prettier": "^3.3.3",
@@ -80,5 +84,6 @@
 	"overrides": {
 		"@types/react": "npm:types-react@19.0.0-rc.0",
 		"@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
-	}
+	},
+	"packageManager": "pnpm@9.13.2+sha512.88c9c3864450350e65a33587ab801acf946d7c814ed1134da4a924f6df5a2120fd36b46aab68f7cd1d413149112d53c7db3a4136624cfd00ff1846a0c6cef48a"
 }
