@@ -6,7 +6,7 @@ export const formatSlug = (val: string): string =>
 		.replace(/[^\w-]+/g, "")
 		.toLowerCase();
 
-export const formatSlugField =
+export const formatSlugHook =
 	(fallback: string): FieldHook =>
 	({ data, operation, originalDoc, value }) => {
 		if (typeof value === "string") {

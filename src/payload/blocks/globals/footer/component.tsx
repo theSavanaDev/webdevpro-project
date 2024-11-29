@@ -1,7 +1,7 @@
 import { unstable_cache } from "next/cache";
 import Link from "next/link";
 
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import config from "@payload-config";
 
 import { Separator } from "@/components/ui/separator";
@@ -11,7 +11,7 @@ import { RenderImage } from "@/components/render-image";
 
 const serverURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
-const data = await getPayloadHMR({ config: config });
+const data = await getPayload({ config: config });
 
 const getFooter = unstable_cache(
 	async () => {
