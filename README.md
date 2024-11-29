@@ -40,7 +40,7 @@ and application platform of choice.
 
 - **Frontend:** Next.js version 15, TypeScript, Tailwind CSS and Shadcn UI.
 - **Backend:** Payload CMS, MongoDB and UploadThing Digital Asset Management.
-- **Deployment:** Vercel
+- **Deployment:** Netlify
 
 ## Getting Started
 
