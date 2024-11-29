@@ -1,7 +1,7 @@
 import { unstable_cache } from "next/cache";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import config from "@payload-config";
 
 import { Container } from "@/components/container";
@@ -11,7 +11,7 @@ export type FaqsBlockProps = {
 	caption: object;
 };
 
-const data = await getPayloadHMR({ config: config });
+const data = await getPayload({ config: config });
 
 const getFaqs = unstable_cache(
 	async () => {

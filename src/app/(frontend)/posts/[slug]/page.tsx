@@ -2,7 +2,7 @@ import { cache } from "react";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import config from "@payload-config";
 
 import { generateMeta } from "@/lib/generate-meta";
@@ -20,7 +20,7 @@ import type { Post } from "@/payload-types";
 type Args = { params: Promise<{ slug?: string }> };
 
 export async function generateStaticParams() {
-	const data = await getPayloadHMR({ config: config });
+	const data = await getPayload({ config: config });
 
 	const posts = await data.find({
 		collection: "posts",
@@ -79,7 +79,7 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
 
 	const parsedSlug = decodeURIComponent(slug);
 
-	const data = await getPayloadHMR({ config: config });
+	const data = await getPayload({ config: config });
 
 	const result = await data.find({
 		collection: "posts",

@@ -1,4 +1,4 @@
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import config from "@payload-config";
 
 import { Container } from "@/components/container";
@@ -15,7 +15,7 @@ export const ProductsArchiveBlock = async (props: ProductsArchiveBlockProps & { 
 	let products: Product[] = [];
 
 	if (populateBy === "collection") {
-		const payload = await getPayloadHMR({ config: config });
+		const payload = await getPayload({ config: config });
 
 		const flattenedCategories = categories?.map((category) => {
 			if (typeof category === "object") return category.id;

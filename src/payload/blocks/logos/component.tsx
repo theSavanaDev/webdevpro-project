@@ -1,7 +1,7 @@
 import { unstable_cache } from "next/cache";
 import Image from "next/image";
 
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import config from "@payload-config";
 
 import { Container } from "@/components/container";
@@ -11,7 +11,7 @@ type LogosBlockProps = { caption: object };
 
 const publicURL = process.env.NODE_ENV === "development" ? process.env.NEXT_PUBLIC_SERVER_URL_DEV! : process.env.NEXT_PUBLIC_SERVER_URL_PRD!;
 
-const data = await getPayloadHMR({ config: config });
+const data = await getPayload({ config: config });
 
 const getLogos = unstable_cache(
 	async () => {

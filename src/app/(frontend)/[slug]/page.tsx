@@ -2,7 +2,7 @@ import { cache } from "react";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import config from "@payload-config";
 
 import { generateMeta } from "@/lib/generate-meta";
@@ -11,7 +11,7 @@ import { RenderBlocks } from "@/payload/blocks/render-blocks";
 import type { Page } from "@/payload-types";
 
 export async function generateStaticParams() {
-	const data = await getPayloadHMR({ config: config });
+	const data = await getPayload({ config: config });
 
 	const pages = await data.find({
 		collection: "pages",
@@ -60,7 +60,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
 
 	const parsedSlug = decodeURIComponent(slug);
 
-	const data = await getPayloadHMR({ config: config });
+	const data = await getPayload({ config: config });
 
 	const result = await data.find({
 		collection: "pages",

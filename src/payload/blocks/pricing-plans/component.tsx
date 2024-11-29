@@ -1,6 +1,6 @@
 import { unstable_cache } from "next/cache";
 
-import { getPayloadHMR } from "@payloadcms/next/utilities";
+import { getPayload } from "payload";
 import config from "@payload-config";
 
 import { Container } from "@/components/container";
@@ -11,7 +11,7 @@ export type PricingPlansBlockProps = {
 	caption: object;
 };
 
-const data = await getPayloadHMR({ config: config });
+const data = await getPayload({ config: config });
 
 const getPricingPlans = unstable_cache(
 	async () => {
