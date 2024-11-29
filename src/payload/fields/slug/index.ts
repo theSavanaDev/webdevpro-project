@@ -1,4 +1,4 @@
-import { formatSlugField } from "@/payload/fields/slug/hooks/format-slug";
+import { formatSlugHook } from "@/payload/fields/slug/hooks/format-slug";
 
 import type { CheckboxField, TextField } from "payload";
 
@@ -34,7 +34,7 @@ export const slugField: Slug = (fieldToUse = "title", overrides = {}) => {
 		...(slugOverrides || {}),
 		hooks: {
 			// Kept this in for hook or API based updates
-			beforeValidate: [formatSlugField(fieldToUse)],
+			beforeValidate: [formatSlugHook(fieldToUse)],
 		},
 		admin: {
 			position: "sidebar",
