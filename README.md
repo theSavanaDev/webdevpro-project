@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5c8333ae-8d43-4cae-bded-3c8199d196e4/deploy-status)](https://app.netlify.com/sites/webdevpro-web-project/deploys)
+
 # The WebDevPro Project
 
 This repository contains an example that showcases how powerful Payload CMS is, and how it
